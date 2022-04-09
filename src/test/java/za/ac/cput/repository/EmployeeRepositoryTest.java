@@ -1,11 +1,15 @@
 package za.ac.cput.repository;
 
+/*
+ * Author : Adecel Rusty Mabiala
+ * Student Number : 219197229
+ * Assessment 01 (Term1)
+ * */
+
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.domain.entity.Department;
 import za.ac.cput.domain.entity.Employee;
-import za.ac.cput.factory.DepartmentFactory;
 import za.ac.cput.factory.EmployeeFactory;
 
 import static org.junit.jupiter.api.Assertions.*;

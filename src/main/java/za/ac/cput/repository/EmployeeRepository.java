@@ -1,6 +1,11 @@
 package za.ac.cput.repository;
 
-import za.ac.cput.domain.entity.Department;
+/*
+ * Author : Adecel Rusty Mabiala
+ * Student Number : 219197229
+ * Assessment 01 (Term1)
+ * */
+
 import za.ac.cput.domain.entity.Employee;
 
 import java.util.HashSet;

@@ -1,5 +1,11 @@
 package za.ac.cput.util;
 
+/*
+ * Author : Adecel Rusty Mabiala
+ * Student Number : 219197229
+ * Assessment 01 (Term1)
+ * */
+
 import java.util.UUID;
 
 public class Helper {

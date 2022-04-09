@@ -1,5 +1,11 @@
 package za.ac.cput.repository;
 
+/*
+ * Author : Adecel Rusty Mabiala
+ * Student Number : 219197229
+ * Assessment 01 (Term1)
+ * */
+
 import za.ac.cput.domain.entity.AirportManagement;
 
 import java.util.HashSet;
@@ -32,17 +38,6 @@ public class AirportManagementRepository implements IAirportManagementRepository
 
     @Override
     public AirportManagement read(String airportName) {
-//        AirportManagement airportManagementRead = airportManagementDB.stream()
-//                .filter(am -> am.getAirportName().equals(airportName))
-//                .findAny()
-//                .orElse(null);
-//        return null;
-
-//        AirportManagement readAirport = read(airportName);
-//        if(readAirport == null) {
-//            return true;
-//        }
-//        return false;
         for (AirportManagement am : airportManagementDB) {
             if (am.getAirportName().equals(airportName))
                 return am;
@@ -52,14 +47,6 @@ public class AirportManagementRepository implements IAirportManagementRepository
 
     @Override
     public AirportManagement update(AirportManagement airportManagement) {
-//        AirportManagement updateManagement = read(airportManagement.getAirportName());
-//        if (updateManagement != null) {
-//            airportManagementDB.remove(updateManagement);
-//            airportManagementDB.add(airportManagement);
-//            return airportManagement;
-//        }
-//        return null;
-
         boolean update = airportManagementDB.add(airportManagement);
         if (!update){
             return null;
