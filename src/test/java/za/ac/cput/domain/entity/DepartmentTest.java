@@ -1,6 +1,11 @@
 package za.ac.cput.domain.entity;
 
 import org.junit.jupiter.api.Test;
+/*
+ * Author : Adecel Rusty Mabiala
+ * Student Number : 219197229
+ * Assessment 01 (Term1)
+ * */
 
 import static org.junit.jupiter.api.Assertions.*;
 
