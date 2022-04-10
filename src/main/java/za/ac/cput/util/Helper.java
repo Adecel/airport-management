@@ -1,4 +1,11 @@
 package za.ac.cput.util;
 
-public class Helper {
+import java.util.UUID;
+
+public class Helper
+{
+    public static String generateID()
+    {
+        return UUID.randomUUID().toString();
+    }
 }
