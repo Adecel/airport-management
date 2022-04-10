@@ -1,8 +1,8 @@
 package za.ac.cput.util;
 
 /*
- * Author : Adecel Rusty Mabiala
- * Student Number : 219197229
+ * Author : Mahad Hassan
+ * Student Number : 219122822
  * Assessment 01 (Term1)
  * */
 
