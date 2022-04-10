@@ -1,4 +1,4 @@
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 /*
  * Author : Adecel Rusty Mabiala
@@ -7,9 +7,10 @@ package za.ac.cput.repository;
  * */
 
 import za.ac.cput.domain.entity.Department;
+import za.ac.cput.repository.IRepository;
 
 import java.util.Set;
 
-public interface IDepartmentRepository extends IRepository<Department, String>{
+public interface IDepartmentRepository extends IRepository<Department, String> {
     public Set<Department> getAll();
 }

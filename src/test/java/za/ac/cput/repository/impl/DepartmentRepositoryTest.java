@@ -1,4 +1,4 @@
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 /*
  * Author : Adecel Rusty Mabiala
@@ -9,29 +9,30 @@ package za.ac.cput.repository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.domain.entity.Employee;
-import za.ac.cput.factory.EmployeeFactory;
+import za.ac.cput.domain.entity.Department;
+import za.ac.cput.factory.DepartmentFactory;
+import za.ac.cput.repository.impl.DepartmentRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
-class EmployeeRepositoryTest {
+class DepartmentRepositoryTest {
 
-    private static EmployeeRepository repository = EmployeeRepository.getRepository();
-    private static Employee employee = EmployeeFactory.employee("298348657",
-            "Sarada Utiwa", "234678", "trolls department");
+    private static DepartmentRepository repository = DepartmentRepository.getRepository();
+    private static Department department = DepartmentFactory.department("23423487",
+            "trolls department", "transport of lagages");
 
     @Test
     void a_create() {
-        Employee created = repository.create(employee);
-        assertEquals(employee.getEmployeeID(), created.getEmployeeID());
+        Department created = repository.create(department);
+        assertEquals(department.getDepID(), created.getDepID());
 
         System.out.println("Create : " + created);
     }
 
     @Test
     void b_read() {
-        Employee read = repository.read(employee.getEmployeeID());
+        Department read = repository.read(department.getDepID());
         assertNotNull(read);
 
         System.out.println("Read : " + read);
@@ -39,9 +40,9 @@ class EmployeeRepositoryTest {
 
     @Test
     void c_update() {
-        Employee updated = new Employee.Builder().copy(employee)
-                .setEmployeeID("345123098").setEmployeeName("Itachi Utiwa")
-                .setDepID("2008734").setDepName("Lagages").build();
+        Department updated = new Department.Builder().copy(department)
+                .setDepID("345123098").setDepName("Screens department")
+                .setDescription("projections").build();
         assertNotNull(repository.update(updated));
 
         System.out.println("Update: " + updated);
@@ -49,7 +50,7 @@ class EmployeeRepositoryTest {
 
     @Test
     void e_delete() {
-        boolean success = repository.delete(employee.getEmployeeID());
+        boolean success = repository.delete(department.getDepID());
         assertTrue(success);
 
         System.out.println("Deleted: " + success);
