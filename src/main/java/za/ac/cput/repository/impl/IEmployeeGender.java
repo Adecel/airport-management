@@ -1,0 +1,12 @@
+/* IEmployeeGender.java
+  Author: Hilary Cassidy Nguepi Nangmo (220346887)
+ Date: 6 April 2022
+*/
+package za.ac.cput.repository.impl;
+
+import za.ac.cput.domain.entity.EmployeeGender;
+
+public interface IEmployeeGender extends  IRepository <EmployeeGender, String>
+{
+public Set<EmployeeGender> getAll();
+        }
