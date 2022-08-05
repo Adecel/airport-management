@@ -1,0 +1,14 @@
+server:
+  error:
+    include-stacktrace: never
+
+Spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  datasource:
+    #Don't use this yet
+#    url: jdbc:mysql://localhost:3307/schoolManagement-db?createDatabaseIfNotExist=true
+    username: root
+    password:
