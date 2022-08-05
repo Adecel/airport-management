@@ -5,8 +5,8 @@ package za.ac.cput.repository.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.domain.entity.Luggage;
-import za.ac.cput.factory.LuggageFactory;
+import za.ac.cput.factory.department.LuggageFactory;
+import za.ac.cput.repository.department.LuggageRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 

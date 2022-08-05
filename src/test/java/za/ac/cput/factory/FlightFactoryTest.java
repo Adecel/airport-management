@@ -3,8 +3,7 @@ package za.ac.cput.factory;
 
 //220169136 DIEUCI DJATE NSIBU
 import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.entity.Flight;
-
+import za.ac.cput.factory.department.FlightFactory;
 
 
 import static org.junit.jupiter.api.Assertions.*;

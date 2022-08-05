@@ -5,8 +5,8 @@ package za.ac.cput.repository.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.domain.entity.Flight;
-import za.ac.cput.factory.FlightFactory;
+import za.ac.cput.factory.department.FlightFactory;
+import za.ac.cput.repository.department.FlightRepository;
 
 
 import static org.junit.jupiter.api.Assertions.*;

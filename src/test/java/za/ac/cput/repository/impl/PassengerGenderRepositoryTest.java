@@ -5,8 +5,8 @@
 package za.ac.cput.repository.impl;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.entity.PassengerGender;
-import za.ac.cput.factory.PassengerGenderFactory;
+import za.ac.cput.factory.passenger.PassengerGenderFactory;
+import za.ac.cput.repository.passenger.PassengerGenderRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 

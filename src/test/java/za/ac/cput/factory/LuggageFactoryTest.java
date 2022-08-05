@@ -1,7 +1,7 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.entity.Luggage;
+import za.ac.cput.factory.department.LuggageFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 

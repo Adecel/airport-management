@@ -7,8 +7,8 @@ package za.ac.cput.repository.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.domain.entity.EmployeeGender;
-import za.ac.cput.factory.EmployeeGenderFactory;
+import za.ac.cput.factory.employee.EmployeeGenderFactory;
+import za.ac.cput.repository.employee.EmployeeGenderRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 

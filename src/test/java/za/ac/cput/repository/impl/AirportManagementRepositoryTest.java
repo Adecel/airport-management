@@ -9,9 +9,8 @@ package za.ac.cput.repository.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.domain.entity.AirportManagement;
-import za.ac.cput.factory.AirportManagementFactory;
-import za.ac.cput.repository.impl.AirportManagementRepository;
+import za.ac.cput.factory.department.AirportManagementFactory;
+import za.ac.cput.repository.department.AirportManagementRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -4,8 +4,8 @@ package za.ac.cput.repository.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.domain.entity.PassengerTicket;
-import za.ac.cput.factory.PassengerTicketFactory;
+import za.ac.cput.factory.passenger.PassengerTicketFactory;
+import za.ac.cput.repository.passenger.PassengerTicketRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)

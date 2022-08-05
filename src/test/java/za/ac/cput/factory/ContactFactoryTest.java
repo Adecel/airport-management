@@ -1,9 +1,7 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.entity.Contact;
-
-import static org.junit.jupiter.api.Assertions.*;
+import za.ac.cput.factory.lookup.ContactFactory;
 
 class ContactFactoryTest {
 

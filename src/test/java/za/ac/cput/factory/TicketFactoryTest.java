@@ -3,7 +3,7 @@ package za.ac.cput.factory;
 
 //220169136
 import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.entity.Ticket;
+import za.ac.cput.factory.lookup.TicketFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 

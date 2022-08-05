@@ -1,7 +1,7 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.entity.RunWay;
+import za.ac.cput.factory.lookup.RunwayFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 //219383448 KISSIMBA NYEMBO ISAAC

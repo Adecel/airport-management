@@ -3,8 +3,8 @@ package za.ac.cput.repository.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.domain.entity.PassengerContact;
-import za.ac.cput.factory.PassengerContactFactory;
+import za.ac.cput.factory.passenger.PassengerContactFactory;
+import za.ac.cput.repository.passenger.PassengerContactRepo;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
