@@ -3,8 +3,10 @@ package za.ac.cput.domain.department;
 /*
  * Author : Adecel Rusty Mabiala
  * Student Number : 219197229
- * Assessment 01 (Term1)
+ * Capstone Project Deliverables
  * */
+
+import java.util.Objects;
 
 public class Department {
     private String depID;
@@ -13,8 +15,8 @@ public class Department {
 
     //private construction
     private Department() {
-
     }
+
     private Department(Builder builder) {
         this.depID = builder.depID;
         this.depName = builder.depName;
@@ -33,16 +35,17 @@ public class Department {
         return description;
     }
 
-    public void setDepID(String depID) {
-        this.depID = depID;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Department)) return false;
+        Department that = (Department) o;
+        return Objects.equals(getDepID(), that.getDepID()) && Objects.equals(getDepName(), that.getDepName()) && Objects.equals(getDescription(), that.getDescription());
     }
 
-    public void setDepName(String depName) {
-        this.depName = depName;
-    }
-
-    public void setDescription(String description) {
-        description = description;
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDepID(), getDepName(), getDescription());
     }
 
     @Override
@@ -62,17 +65,17 @@ public class Department {
 
         //builder setters
 
-        public Builder setDepID(String depID) {
+        public Builder DepID(String depID) {
             this.depID = depID;
             return this;
         }
 
-        public Builder setDepName(String depName) {
+        public Builder DepName(String depName) {
             this.depName = depName;
             return this;
         }
 
-        public Builder setDescription(String description) {
+        public Builder Description(String description) {
             this.description = description;
             return this;
         }

@@ -3,8 +3,10 @@ package za.ac.cput.domain.employee;
 /*
  * Author : Adecel Rusty Mabiala
  * Student Number : 219197229
- * Assessment 01 (Term1)
+ * Capstone Project Deliverables
  * */
+
+import java.util.Objects;
 
 public class Employee {
     private String employeeID;
@@ -39,21 +41,18 @@ public class Employee {
         return depName;
     }
 
-//    public void setEmployeeID(String employeeID) {
-//        this.employeeID = employeeID;
-//    }
-//
-//    public void setEmployeeName(String employeeName) {
-//        this.employeeName = employeeName;
-//    }
-//
-//    public void setDepID(String depID) {
-//        this.depID = depID;
-//    }
-//
-//    public void setDepName(String depName) {
-//        this.depName = depName;
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(getEmployeeID(), employee.getEmployeeID()) && Objects.equals(getEmployeeName(), employee.getEmployeeName()) && Objects.equals(getDepID(), employee.getDepID()) && Objects.equals(getDepName(), employee.getDepName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getEmployeeID(), getEmployeeName(), getDepID(), getDepName());
+    }
 
     @Override
     public String toString() {
@@ -88,7 +87,7 @@ public class Employee {
             return this;
         }
 
-        public Builder setDepName(String depName) {
+        public Builder DepName(String depName) {
             this.depName = depName;
             return this;
         }

@@ -3,15 +3,17 @@ package za.ac.cput.repository.department;
 /*
  * Author : Adecel Rusty Mabiala
  * Student Number : 219197229
- * Assessment 01 (Term1)
+ * Capstone Project Deliverables
  * */
 
+import za.ac.cput.domain.department.AirportManagement;
 import za.ac.cput.domain.department.Department;
+import za.ac.cput.repository.IRepository;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class DepartmentRepository implements IDepartmentRepository {
+public class DepartmentRepository implements IRepository<AirportManagement, String> {
 
     private static DepartmentRepository repository = null;
     private Set<Department> departmentDB = null;

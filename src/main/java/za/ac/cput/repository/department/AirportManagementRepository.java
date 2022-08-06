@@ -3,71 +3,70 @@ package za.ac.cput.repository.department;
 /*
  * Author : Adecel Rusty Mabiala
  * Student Number : 219197229
- * Assessment 01 (Term1)
+ * Capstone Project Deliverables
  * */
 
 import za.ac.cput.domain.department.AirportManagement;
+import za.ac.cput.repository.IRepository;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
-public class AirportManagementRepository implements IAirportManagementRepository{
 
-    private static AirportManagementRepository repository = null;
-    private Set<AirportManagement> airportManagementDB = null;
+//CRUD is the goal.
+public class AirportManagementRepository implements IRepository<AirportManagement, String> {
 
-    private AirportManagementRepository() {
-        airportManagementDB = new HashSet<AirportManagement>();
+    /*Singletone */
+    private final List<AirportManagement> airportManagementList;
+    private static AirportManagementRepository AIRPORT_MANAGEMENT_REPOSITORY;
+
+    private AirportManagementRepository(){
+        this.airportManagementList = new ArrayList<>();
     }
 
-    public static AirportManagementRepository getRepository() {
-        if (repository == null){
-            repository = new AirportManagementRepository();
+    public static AirportManagementRepository airportManagementRepository(){
+        if (AIRPORT_MANAGEMENT_REPOSITORY == null){
+            AIRPORT_MANAGEMENT_REPOSITORY = new AirportManagementRepository();
         }
-        return repository;
+        return AIRPORT_MANAGEMENT_REPOSITORY;
     }
 
-    @Override
-    public AirportManagement create(AirportManagement airportManagement) {
-        boolean success = airportManagementDB.add(airportManagement);
-        if (!success){
-            return null;
+    public AirportManagement save(AirportManagement airportManagement) {
+        Optional<AirportManagement> read = read(airportManagement.getAirportName());
+        if (read.isPresent()) {
+            delete(read.get());
         }
+        this.airportManagementList.add(airportManagement);
         return airportManagement;
     }
 
-    @Override
-    public AirportManagement read(String airportName) {
-        for (AirportManagement am : airportManagementDB) {
-            if (am.getAirportName().equals(airportName))
-                return am;
-        }
-        return null;
+//    public AirportManagement create(AirportManagement airportManagement) {
+//        this.airportManagementList.add(airportManagement);
+//        return airportManagement;
+//    }
+//
+//    public AirportManagement update(AirportManagement airportManagement) {
+//        Optional<AirportManagement> read = read(airportManagement.getAirportName());
+//        if (read.isPresent()) {
+//            delete(read.get());
+//            create(airportManagement);
+//        }
+//        return airportManagement;
+//    }
+
+    public Optional<AirportManagement> read(String airportName) {
+        return  this.airportManagementList.stream()
+                .filter(a -> a.getAirportName().equalsIgnoreCase(airportName))
+                .findFirst();
     }
 
-    @Override
-    public AirportManagement update(AirportManagement airportManagement) {
-        boolean update = airportManagementDB.add(airportManagement);
-        if (!update){
-            return null;
-        }
-        return airportManagement;
+    public void delete(AirportManagement airportManagement) {
+        this.airportManagementList.remove(airportManagement);
     }
 
-    @Override
-    public boolean delete(String airportName) {
-        AirportManagement airportToBeDelete = read(airportName);
-        if(airportToBeDelete == null) {
-            return false;
-        }
-        airportManagementDB.remove(airportToBeDelete);
-
-        return true;
-    }
-
-    @Override
-    public Set<AirportManagement> getAll() {
-        return airportManagementDB;
+    public List<AirportManagement> findAll() {
+        return this.airportManagementList;
     }
 
 }

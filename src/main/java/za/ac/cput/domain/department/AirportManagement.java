@@ -3,18 +3,19 @@ package za.ac.cput.domain.department;
 /*
 * Author : Adecel Rusty Mabiala
 * Student Number : 219197229
-* Assessment 01 (Term1)
+* Capstone Project Deliverables
 * */
 
+import java.util.Objects;
+
 public class AirportManagement {
-    private String airportName;
-    private String cityName;
-    private String area;
+
+    private final String airportName;
+    private final String cityName;
+    private final  String area;
 
     //private construction
-    private AirportManagement() {
 
-    }
     private AirportManagement(Builder builder) {
         this.airportName = builder.airportName;
         this.cityName = builder.cityName;
@@ -34,22 +35,17 @@ public class AirportManagement {
         return area;
     }
 
-    //setters
-    public void setAirportName(String airportName) {
-        this.airportName = airportName;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AirportManagement)) return false;
+        AirportManagement that = (AirportManagement) o;
+        return Objects.equals(getAirportName(), that.getAirportName()) && Objects.equals(getCityName(), that.getCityName()) && Objects.equals(getArea(), that.getArea());
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    //methods of this entity
-    public void open() {
-        //
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAirportName(), getCityName(), getArea());
     }
 
     @Override
@@ -68,17 +64,17 @@ public class AirportManagement {
         private String area;
 
         //builder setters
-        public Builder setAirportName(String airportName) {
+        public Builder AirportName(String airportName) {
             this.airportName = airportName;
             return this;
         }
 
-        public Builder setCityName(String cityName) {
+        public Builder CityName(String cityName) {
             this.cityName = cityName;
             return this;
         }
 
-        public Builder setArea(String area) {
+        public Builder Area(String area) {
             this.area = area;
             return this;
         }

@@ -3,10 +3,11 @@ package za.ac.cput.factory.department;
 /*
  * Author : Adecel Rusty Mabiala
  * Student Number : 219197229
- * Assessment 01 (Term1)
+ * Capstone Project Deliverables
  * */
 
 import org.junit.jupiter.api.Test;
+import za.ac.cput.domain.department.Department;
 import za.ac.cput.factory.department.DepartmentFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,13 +15,22 @@ import static org.junit.jupiter.api.Assertions.*;
 class DepartmentFactoryTest {
 
     @Test
-    public void test() {
-        Department department = DepartmentFactory.department("234890",
+    public void testWithSuccess() {
+        Department department = DepartmentFactory.build("234890",
                 "trolls Department",
                 "transport of lagage");
-        assertNotNull(department);
-
         System.out.println(department);
+        assertNotNull(department);
+    }
+
+    @Test
+    public void testWithError(){
+        Exception exception = assertThrows(IllegalArgumentException.class, ()->
+                DepartmentFactory.build(null,
+                        "trolls Department",
+                        "transport of lagage"));
+        String exceptionMessage = exception.getMessage();
+        assertSame("depID is required!", exceptionMessage);
     }
 
 }
