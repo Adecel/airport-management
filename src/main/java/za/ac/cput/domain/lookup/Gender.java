@@ -20,8 +20,6 @@ public class Gender
     @NotNull
     private String genName;
 
-    private Gender() {
-    }
 
     private Gender(Builder builder)
     {
