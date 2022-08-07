@@ -1,9 +1,25 @@
 package za.ac.cput.domain.passenger;
 
+/*
+/Name : Mahad Haasan
+Student Num: 219122822
+Capstone Project
+Class: PassengerContact.java
+ */
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "PassengerContact")
 public class PassengerContact {
-    private String passengerId;
+  @Id
+  private String passengerId;
     private String conId;
 
+    protected PassengerContact() {
+
+    }
 
     // private con
     private  PassengerContact(Builder builder){
@@ -12,7 +28,6 @@ public class PassengerContact {
 
     }
 
-
     public String getPassengerId() {
         return passengerId;
     }
@@ -20,14 +35,6 @@ public class PassengerContact {
     public String getConId() {
         return conId;
     } // getters
-
-    public void setPassengerId(String passengerId) {
-        this.passengerId = passengerId;
-    }
-
-    public void setConId(String conId) {
-        this.conId = conId;
-    } // setters
 
     @Override
     public String toString() {
