@@ -1,18 +1,27 @@
 package za.ac.cput.domain.employee;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 //        * aurthor : Mahad Hassan
 //         *
 //         * student number (219122822)
 //         *
-//         * Date 8 april 2022
+//         * Capstone Project
 //         *
 //         * EmployeeContact.java
 //         * */
-
+@Entity
+@Table(name = "EmployeeContact")
 public class EmployeeContact {
-    private String EmployeeId;
+  @Id
+  private String EmployeeId;
     private String ConId;
 
+    protected EmployeeContact() {
+
+    }
 
     // private cons
     private EmployeeContact(Builder builder){
@@ -21,7 +30,6 @@ public class EmployeeContact {
 
     }
 
-
     public String getEmployeeId() {
         return EmployeeId;
     }
@@ -29,14 +37,6 @@ public class EmployeeContact {
     public String getConId() {
         return ConId;
     } // getters
-
-    public void setEmployeeId(String employeeId) {
-        EmployeeId = employeeId;
-    }
-
-    public void setConId(String conId) {
-        ConId = conId;
-    } // setters
 
     @Override
     public String toString() {

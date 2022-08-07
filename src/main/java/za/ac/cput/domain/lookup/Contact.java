@@ -1,10 +1,27 @@
 package za.ac.cput.domain.lookup;
+/*
+/Name : Mahad Haasan
+student num: 219122822
+Capstone Project
+Class : Contact
+ */
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "Contact")
 public class Contact {
-    private String conId;
+   @Id
+   private String conId;
     private String conNumber;
     private String conDescription;
 
+    protected Contact() {
+
+    }
 
     // private cons
     private Contact(Builder builder){
@@ -13,7 +30,6 @@ public class Contact {
         this.conDescription = builder.conDescription;
 
     }
-
 
     public String getConId() {
         return conId;
@@ -30,14 +46,6 @@ public class Contact {
     public void setConId(String conId) {
         this.conId = conId;
     }
-
-    public void setConNumber(String conNumber) {
-        this.conNumber = conNumber;
-    }
-
-    public void setConDescription(String conDescription) {
-        this.conDescription = conDescription;
-    } // setters
 
     @Override
     public String toString() {
