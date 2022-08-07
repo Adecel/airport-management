@@ -1,13 +1,23 @@
 /* Gender.java
  Entity for the Gender
  Author: Hilary Cassidy Nguepi Nangmo (220346887)
- Date: 6 April 2022
+ Date: 2022/08/07
 */
 package za.ac.cput.domain.lookup;
 
+import org.springframework.data.annotation.Id;
+
+
+import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
+
+@Entity
 public class Gender
 {
+    @Id @NotNull
     private String genId;
+    @NotNull
     private String genName;
 
     private Gender() {
@@ -28,12 +38,15 @@ public class Gender
         return genName;
     }
 
-    public void setGenId(String genId) {
-        this.genId = genId;
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Gender gender= (Gender) o;
+        return genId.equals(gender.genId)&& genName.equals(gender.genName);
     }
 
-    public void setGenName(String genName) {
-        this.genName = genName;
+    public int hashCode(){
+        return Objects.hash(genId,genName);
     }
 
     @Override
@@ -49,12 +62,12 @@ public class Gender
         private String genId;
         private String genName;
 
-        public Builder setGenId(String genId) {
+        public Builder builderGenId(String genId) {
             this.genId = genId;
             return this;
         }
 
-        public Builder setGenName(String genName) {
+        public Builder builderGenName(String genName) {
             this.genName = genName;
             return this;
         }
