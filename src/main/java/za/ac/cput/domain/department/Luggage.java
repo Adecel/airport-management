@@ -2,10 +2,22 @@ package za.ac.cput.domain.department;
 
 //219383448 KISSIMBA NYEMBO ISAAC
 
-public class Luggage {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Entity
+
+public class Luggage implements Serializable {
+    @NotNull
+    @Id
     private String luggageID;
-    private String luggageNumber;
-    private String luggageType;
+    @NotNull private String luggageNumber;
+    @NotNull private String luggageType;
+
+    protected  Luggage(){}
 
     private  Luggage(Builder builder){
         this.luggageID = builder.luggageID;
@@ -18,24 +30,12 @@ public class Luggage {
         return luggageID;
     }
 
-    public void setLuggageID(String luggageID) {
-        this.luggageID = luggageID;
-    }
-
     public String getLuggageNumber() {
         return luggageNumber;
     }
 
-    public void setLuggageNumber(String luggageNumber) {
-        this.luggageNumber = luggageNumber;
-    }
-
     public String getLuggageType() {
         return luggageType;
-    }
-
-    public void setLuggageType(String luggageType) {
-        this.luggageType = luggageType;
     }
 
     @Override
@@ -46,22 +46,60 @@ public class Luggage {
                 ", luggageType='" + luggageType + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Luggage luggage = (Luggage) o;
+        return Objects.equals(luggageID, luggage.luggageID) && Objects.equals(luggageNumber, luggage.luggageNumber) && Objects.equals(luggageType, luggage.luggageType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(luggageID, luggageNumber, luggageType);
+    }
+
+    public static class LuggageId{
+        private String luggageID;
+        private String luggageNumber;
+        private String luggageType;
+
+        public LuggageId(String luggageID, String luggageNumber, String luggageType) {
+            this.luggageID = luggageID;
+            this.luggageNumber = luggageNumber;
+            this.luggageType = luggageType;
+        }
+
+        public String getLuggageID() {
+            return luggageID;
+        }
+
+        public String getLuggageNumber() {
+            return luggageNumber;
+        }
+
+        public String getLuggageType() {
+            return luggageType;
+        }
+    }
+
     public static class Builder{
         private String luggageID;
         private String luggageNumber;
         private String luggageType;
 
-        public Builder setLuggageID(String luggageID) {
+        public Builder BuildLuggageID(String luggageID) {
             this.luggageID = luggageID;
             return this;
         }
 
-        public Builder setLuggageNumber(String luggageNumber) {
+        public Builder BuildLuggageNumber(String luggageNumber) {
             this.luggageNumber = luggageNumber;
             return this;
         }
 
-        public Builder setLuggageType(String luggageType) {
+        public Builder BuildLuggageType(String luggageType) {
             this.luggageType = luggageType;
             return this;
         }

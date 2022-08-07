@@ -1,6 +1,7 @@
 package za.ac.cput.factory.lookup;
 
 import org.junit.jupiter.api.Test;
+import za.ac.cput.domain.lookup.RunWay;
 import za.ac.cput.factory.lookup.RunwayFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,12 +9,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RunwayFactoryTest {
     @Test
-    public void test(){
-        RunWay runWay = RunwayFactory.createRunway("3", "Mango", "Empty");
-        System.out.println(runWay.toString());
+    void buildWithSuccess(){
+        RunWay runWay =  RunwayFactory.createRunway("A35", "Lufthansa", "Empty");
+        System.out.println(runWay);
         assertNotNull(runWay);
+
     }
-
-
+    @Test
+    void buildWithError(){
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+                RunwayFactory
+                        .createRunway("", "A35", "Empty"));
+        System.out.println(exception.getMessage());
+        assertTrue(exception.getMessage().contains("runwayNumber"));
+    }
 
 }
