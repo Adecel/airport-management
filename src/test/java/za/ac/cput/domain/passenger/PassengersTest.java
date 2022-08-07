@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 class PassengersTest {
     @Test
     public void test(){
-        Passengers passengers = new Passengers.Builder().setPassengerID("219383664")
-                .setPassengerFirstName("JONATHAN")
-                .setPassengerLastName("KUMINGA")
-                .setPassengerAge("20")
+        Passengers passengers = new Passengers.Builder().BuildPassengerID("219383664")
+                .BuildPassengerFirstName("JONATHAN")
+                .BuildPassengerLastName("KUMINGA")
+                .BuildPassengerAge("20")
                 .build();
         System.out.println(passengers);
 

@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 class LuggageTest {
     @Test
     public void test(){
-        Luggage luggage = new Luggage.Builder().setLuggageID("AC243")
-                .setLuggageNumber("08")
-                .setLuggageType("Fournitures")
+        Luggage luggage = new Luggage.Builder().BuildLuggageID("AC243")
+                .BuildLuggageNumber("08")
+                .BuildLuggageType("Fournitures")
                 .build();
         System.out.println(luggage);
     }

@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 class RunWayTest {
     @Test
     public void test(){
-        RunWay runWay = new RunWay.Builder().setRunwayNumber("3")
-                .setFlightName("Mango")
-                .setRunwayStatus("Empty")
+        RunWay runWay = new RunWay.Builder().BuildRunwayNumber("3")
+                .BuildFlightName("Mango")
+                .BuildRunwayStatus("Empty")
                 .build();
         System.out.println(runWay);
     }

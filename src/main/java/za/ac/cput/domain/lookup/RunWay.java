@@ -1,11 +1,22 @@
 package za.ac.cput.domain.lookup;
 
-//219383448 KISSIMBA NYEMBO ISAAC
 
-public class RunWay {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
+//219383448 KISSIMBA NYEMBO ISAAC
+@Entity
+public class RunWay implements Serializable {
+    @NotNull
+    @Id
     private String runwayNumber;
-    private String FlightName;
-    private String runwayStatus;
+    @NotNull private String FlightName;
+    @NotNull private String runwayStatus;
+
+    protected  RunWay(){}
 
 
     private RunWay(RunWay.Builder builder){
@@ -21,24 +32,12 @@ public class RunWay {
         return runwayNumber;
     }
 
-    public void setRunwayNumber(String runwayNumber) {
-        this.runwayNumber = runwayNumber;
-    }
-
     public String getFlightName() {
         return FlightName;
     }
 
-    public void setFlightName(String flightName) {
-        FlightName = flightName;
-    }
-
     public String getRunwayStatus() {
         return runwayStatus;
-    }
-
-    public void setRunwayStatus(String runwayStatus) {
-        this.runwayStatus = runwayStatus;
     }
 
     @Override
@@ -49,22 +48,61 @@ public class RunWay {
                 ", runwayStatus='" + runwayStatus + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RunWay runWay = (RunWay) o;
+        return Objects.equals(runwayNumber, runWay.runwayNumber) && Objects.equals(FlightName, runWay.FlightName) && Objects.equals(runwayStatus, runWay.runwayStatus);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(runwayNumber, FlightName, runwayStatus);
+    }
+
+    public static class RunWayID{
+        private String runwayNumber;
+        private String FlightName;
+        private String runwayStatus;
+
+
+        public RunWayID(String runwayNumber, String flightName, String runwayStatus) {
+            this.runwayNumber = runwayNumber;
+            FlightName = flightName;
+            this.runwayStatus = runwayStatus;
+        }
+
+        public String getRunwayNumber() {
+            return runwayNumber;
+        }
+
+        public String getFlightName() {
+            return FlightName;
+        }
+
+        public String getRunwayStatus() {
+            return runwayStatus;
+        }
+    }
+
     public static class Builder{
         private String runwayNumber;
         private String FlightName;
         private String runwayStatus;
 
-        public Builder setRunwayNumber(String runwayNumber) {
+        public Builder BuildRunwayNumber(String runwayNumber) {
             this.runwayNumber = runwayNumber;
             return this;
         }
 
-        public Builder setFlightName(String flightName) {
+        public Builder BuildFlightName(String flightName) {
             FlightName = flightName;
             return this;
         }
 
-        public Builder setRunwayStatus(String runwayStatus) {
+        public Builder BuildRunwayStatus(String runwayStatus) {
             this.runwayStatus = runwayStatus;
             return this;
         }
@@ -78,4 +116,5 @@ public class RunWay {
         public RunWay build(){return new RunWay(this);}
     }
 }
+
 
