@@ -6,70 +6,53 @@ package za.ac.cput.repository.department;
  * Capstone Project Deliverables
  * */
 
-import za.ac.cput.domain.department.AirportManagement;
 import za.ac.cput.domain.department.Department;
 import za.ac.cput.repository.IRepository;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
-public class DepartmentRepository implements IRepository<AirportManagement, String> {
+public class DepartmentRepository implements IRepository<Department, String> {
 
-    private static DepartmentRepository repository = null;
-    private Set<Department> departmentDB = null;
+    /*Singletone */
+    private final List<Department> departmentList;
+    private static DepartmentRepository DEPARTMENT_REPOSITORY;
 
-    private DepartmentRepository() {
-        departmentDB = new HashSet<Department>();
+    private DepartmentRepository(){
+        this.departmentList = new ArrayList<>();
     }
 
-    public static DepartmentRepository getRepository() {
-        if (repository == null){
-            repository = new DepartmentRepository();
+    public static DepartmentRepository departmentRepository(){
+        if (DEPARTMENT_REPOSITORY == null){
+            DEPARTMENT_REPOSITORY = new DepartmentRepository();
         }
-        return repository;
+        return DEPARTMENT_REPOSITORY;
     }
-
 
     @Override
-    public Department create(Department department) {
-        boolean success = departmentDB.add(department);
-        if (!success){
-            return null;
+    public Department save(Department department) {
+        Optional<Department> read = read(department.getDepID());
+        if (read.isPresent()) {
+            delete(read.get());
         }
+        this.departmentList.add(department);
         return department;
     }
 
     @Override
-    public Department read(String depID) {
-        for (Department am : departmentDB) {
-            if (am.getDepID().equals(depID))
-                return am;
-        }
-        return null;
+    public Optional<Department> read(String depID) {
+        return  this.departmentList.stream()
+                .filter(a -> a.getDepID().equalsIgnoreCase(depID))
+                .findFirst();
     }
 
     @Override
-    public Department update(Department department) {
-        boolean update = departmentDB.add(department);
-        if (!update){
-            return null;
-        }
-        return department;
+    public void delete(Department department) {
+        this.departmentList.remove(department);
     }
 
-    @Override
-    public boolean delete(String depID) {
-        Department departmentToBeDelete = read(depID);
-        if(departmentToBeDelete == null) {
-            return false;
-        }
-        departmentDB.remove(departmentToBeDelete);
-
-        return true;
-    }
-
-    @Override
-    public Set<Department> getAll() {
-        return departmentDB;
+    public List<Department> findAll() {
+        return this.departmentList;
     }
 }

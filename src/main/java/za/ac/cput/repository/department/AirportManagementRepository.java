@@ -41,20 +41,6 @@ public class AirportManagementRepository implements IRepository<AirportManagemen
         return airportManagement;
     }
 
-//    public AirportManagement create(AirportManagement airportManagement) {
-//        this.airportManagementList.add(airportManagement);
-//        return airportManagement;
-//    }
-//
-//    public AirportManagement update(AirportManagement airportManagement) {
-//        Optional<AirportManagement> read = read(airportManagement.getAirportName());
-//        if (read.isPresent()) {
-//            delete(read.get());
-//            create(airportManagement);
-//        }
-//        return airportManagement;
-//    }
-
     public Optional<AirportManagement> read(String airportName) {
         return  this.airportManagementList.stream()
                 .filter(a -> a.getAirportName().equalsIgnoreCase(airportName))
@@ -70,3 +56,17 @@ public class AirportManagementRepository implements IRepository<AirportManagemen
     }
 
 }
+
+//    public AirportManagement create(AirportManagement airportManagement) {
+//        this.airportManagementList.add(airportManagement);
+//        return airportManagement;
+//    }
+//
+//    public AirportManagement update(AirportManagement airportManagement) {
+//        Optional<AirportManagement> read = read(airportManagement.getAirportName());
+//        if (read.isPresent()) {
+//            delete(read.get());
+//            create(airportManagement);
+//        }
+//        return airportManagement;
+//    }

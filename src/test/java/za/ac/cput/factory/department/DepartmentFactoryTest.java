@@ -29,8 +29,18 @@ class DepartmentFactoryTest {
                 DepartmentFactory.build(null,
                         "trolls Department",
                         "transport of lagage"));
-        String exceptionMessage = exception.getMessage();
-        assertSame("depID is required!", exceptionMessage);
+        System.out.println(exception.getMessage());
+        assertFalse(exception.getMessage().contains("depID"));
     }
+
+//    @Test
+//    public void testWithErrors(){
+//        Exception exception = assertThrows(IllegalArgumentException.class, ()->
+//                DepartmentFactory.build(null,
+//                        "trolls Department",
+//                        "transport of lagage"));
+//        String exceptionMessage = exception.getMessage();
+//        assertSame("depID is required!", exceptionMessage);
+//    }
 
 }

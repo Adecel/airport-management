@@ -3,70 +3,58 @@ package za.ac.cput.repository.employee;
 /*
  * Author : Adecel Rusty Mabiala
  * Student Number : 219197229
- * Assessment 01 (Term1)
+ * Capstone Project Deliverables
  * */
 
+import za.ac.cput.domain.department.Department;
 import za.ac.cput.domain.employee.Employee;
+import za.ac.cput.repository.IRepository;
+import za.ac.cput.repository.department.DepartmentRepository;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
-public class EmployeeRepository implements IEmployeeRepository {
+public class EmployeeRepository implements IRepository<Employee, String> {
 
-    private static EmployeeRepository repository = null;
-    private Set<Employee> employeeDB = null;
+    private final List<Employee> employeeList;
+    private static EmployeeRepository EMPLOYEE_REPOSITORY;
 
-    private EmployeeRepository() {
-        employeeDB = new HashSet<Employee>();
+    private EmployeeRepository(){
+        this.employeeList = new ArrayList<>();
     }
 
-    public static EmployeeRepository getRepository() {
-        if (repository == null){
-            repository = new EmployeeRepository();
+    public static EmployeeRepository employeeRepository() {
+        if (EMPLOYEE_REPOSITORY == null) {
+            EMPLOYEE_REPOSITORY = new EmployeeRepository();
         }
-        return repository;
+        return EMPLOYEE_REPOSITORY;
     }
+
 
     @Override
-    public Employee create(Employee employee) {
-        boolean success = employeeDB.add(employee);
-        if (!success){
-            return null;
+    public Employee save(Employee employee) {
+        Optional<Employee> read = read(employee.getEmployeeID());
+        if (read.isPresent()) {
+            delete(read.get());
         }
+        this.employeeList.add(employee);
         return employee;
     }
 
     @Override
-    public Employee read(String employeeID) {
-        for (Employee am : employeeDB) {
-            if (am.getEmployeeID().equals(employeeID))
-                return am;
-        }
-        return null;
+    public Optional<Employee> read(String employeeID) {
+        return  this.employeeList.stream()
+                .filter(a -> a.getEmployeeID().equalsIgnoreCase(employeeID))
+                .findFirst();
     }
 
     @Override
-    public Employee update(Employee employee) {
-        boolean update = employeeDB.add(employee);
-        if (!update){
-            return null;
-        }
-        return employee;
+    public void delete(Employee employee) {
+        this.employeeList.remove(employee);
     }
 
-    @Override
-    public boolean delete(String employeeID) {
-        Employee employeeToBeDelete = read(employeeID);
-        if(employeeToBeDelete == null) {
-            return false;
-        }
-        employeeDB.remove(employeeToBeDelete);
-
-        return true;
-    }
-
-    @Override
-    public Set<Employee> getAll() {
-        return employeeDB;
+    public List<Employee> findAll() {
+        return this.employeeList;
     }
 }
