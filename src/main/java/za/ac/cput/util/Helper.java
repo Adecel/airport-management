@@ -25,9 +25,11 @@ public class Helper {
             throw new IllegalArgumentException(String.format("Invalid value for param: %s", paramName));
     }
 
-//    public static String generateID() {
-//        return UUID.randomUUID().toString();
-//    }
+
+
+    public static String generateID() {
+        return UUID.randomUUID().toString();
+   }
 
 //    public static boolean nullOrEmpty(String string) {
 //        return (string == null || string.equals("") || string.isEmpty() ||
