@@ -10,6 +10,7 @@ public class PassengerGenderFactory
 {
     public static PassengerGender getPassengerGender(String passengerId,String genId)
     {
+        if (passengerId.equals("")|| genId.equals("")) return null;
         return new PassengerGender.Builder().builderPassengerId(passengerId).builderGenId(genId).build();
 
     }

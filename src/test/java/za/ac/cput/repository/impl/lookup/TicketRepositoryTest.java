@@ -5,7 +5,6 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.factory.lookup.TicketFactory;
-import za.ac.cput.repository.lookup.TicketRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
