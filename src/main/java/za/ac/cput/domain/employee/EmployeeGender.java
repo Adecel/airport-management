@@ -1,10 +1,15 @@
 /* EmployeeGender.java
  Entity for the EmployeeGender
  Author: Hilary Cassidy Nguepi Nangmo (220346887)
- Date: 6 April 2022
+ Date: 2022/08/07
 */
 package za.ac.cput.domain.employee;
 
+
+import javax.persistence.Entity;
+import java.util.Objects;
+
+@Entity
 public class EmployeeGender
 {
     private String employeeId;
@@ -24,12 +29,16 @@ public class EmployeeGender
         return genId;
     }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmployeeGender employeeGender= (EmployeeGender) o;
+        return employeeId.equals(employeeGender.employeeId) && genId.equals(employeeGender.genId);
     }
 
-    public void setGenId(String genId) {
-        this.genId = genId;
+    public int hashCode(){
+        return Objects.hash(employeeId,genId);
     }
 
     @Override
@@ -45,12 +54,12 @@ public class EmployeeGender
         private String employeeId;
         private String genId;
 
-        public Builder setEmployeeId(String employeeId) {
+        public Builder builderEmployeeId(String employeeId) {
             this.employeeId = employeeId;
             return this;
         }
 
-        public Builder setGenId(String genId) {
+        public Builder builderGenId(String genId) {
             this.genId = genId;
             return this;
         }
