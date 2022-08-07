@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 class EmployeeContactTest {
 
     @Test
-    public void test(){
+    public void BuildWithSuccess(){
 
         EmployeeContact employeeContact = new EmployeeContact.Builder().setEmployeeId("991")
                 .setConId("7773")
