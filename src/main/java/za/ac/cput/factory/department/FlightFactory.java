@@ -1,17 +1,21 @@
 package za.ac.cput.factory.department;
-//220169136 DIEUCI DJAtE NSIBU
+
+//216266882 Mogamad Tawfeeq Cupido
 
 import za.ac.cput.domain.department.Flight;
 import za.ac.cput.util.Helper;
 
 
 public class FlightFactory {
-    public static Flight createFlight (String flightID, String capacity, String departureTime, String arrivalTime){
-        String flightHelp = Helper.generateID();
-        return new Flight.Builder().setFlightID(flightID)
-                .setCapacity(capacity)
-                .setDepartureTime(departureTime)
-                .setArrivalTime(arrivalTime)
-                .build();
+    public static Flight flight(String flightID, String capacity, String departureTime, String arrivalTime)
+
+    {
+        Helper.checkStringParam("flightID", flightID);
+        Helper.checkStringParam("capacity", capacity);
+        Helper.checkStringParam("departureTime", departureTime);
+        Helper.checkStringParam("arrivalTime", arrivalTime);
+
+
+        return new Flight.Builder().setFlightID(flightID).setCapacity(capacity).setDepartureTime(departureTime).setArrivalTime(arrivalTime).build();
     }
 }

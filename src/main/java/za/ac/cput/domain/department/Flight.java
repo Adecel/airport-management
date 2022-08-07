@@ -1,9 +1,22 @@
 package za.ac.cput.domain.department;
-//220169136 Dieuci Djate Nsibu
+
+//216266882 Mogamad Tawfeeq Cupido
+
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Flight {
+
+    @Id @NotNull
     private String flightID;
+    @NotNull
     private String capacity;
+    @NotNull
     private String departureTime;
+    @NotNull
     private String arrivalTime;
 
     private Flight(){}
@@ -21,8 +34,12 @@ public class Flight {
         return flightID;
     }
 
-    public void setFlightID(String flightID) {
-        this.flightID = flightID;
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flight flight= (Flight) o;
+
+        return flightID.equals(flight.getFlightID());
     }
 
     public String getCapacity() {

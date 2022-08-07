@@ -1,12 +1,25 @@
 package za.ac.cput.domain.lookup;
 
-//219383448 KISSIMBA NYEMBO ISAAC
+//216266882 Mogamad Tawfeeq Cupido
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
+
+@Entity
 public class NoticeBoard {
+
+    @Id @NotNull
     private String FlightID;
+    @NotNull
     private String FlightName;
+    @NotNull
     private String ArrivalTime;
+    @NotNull
     private String DepartureTime;
+    @NotNull
     private String Destination;
 
     private NoticeBoard(Builder builder){
@@ -21,16 +34,22 @@ public class NoticeBoard {
         return FlightID;
     }
 
-    public void setFlightID(String flightID) {
-        FlightID = flightID;
-    }
-
     public String getFlightName() {
         return FlightName;
     }
 
-    public void setFlightName(String flightName) {
-        FlightName = flightName;
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NoticeBoard noticeBoard= (NoticeBoard) o;
+
+        return FlightID.equals(noticeBoard.getFlightID())&& FlightName.equals(noticeBoard.getFlightName());
+    }
+
+
+
+    public int hashCode(){
+        return Objects.hash(FlightID,FlightName);
     }
 
     public String getArrivalTime() {
