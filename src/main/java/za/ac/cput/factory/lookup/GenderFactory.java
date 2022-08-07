@@ -1,6 +1,6 @@
 /* GenderFactory.java
   Author: Hilary Cassidy Nguepi Nangmo (220346887)
- Date: 6 April 2022
+ Date: 2022/08/07
 */
 package za.ac.cput.factory.lookup;
 
@@ -9,13 +9,8 @@ import za.ac.cput.util.Helper;
 
 public class GenderFactory
 {
-    public static Gender createGender(String genName)
+    public static Gender getGender(String genName)
     {
-        String Id= Helper.generateID();
-        Gender gender =new Gender.Builder().setgenId(Id)
-                .setgenName(genName).Build();
-
-        return gender;
-
+        return new Gender.Builder().builderGenName(genName).build();
     }
 }

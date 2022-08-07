@@ -1,10 +1,16 @@
 /* PassengerGender.java
  Entity for the PassengerGender
  Author: Hilary Cassidy Nguepi Nangmo (220346887)
- Date: 6 April 2022
+ Date: 2022/08/07
 */
 package za.ac.cput.domain.passenger;
 
+import za.ac.cput.domain.lookup.Gender;
+
+import javax.persistence.Entity;
+import java.util.Objects;
+
+@Entity
 public class PassengerGender
 {
     private String passengerId;
@@ -25,12 +31,15 @@ public class PassengerGender
         return genId;
     }
 
-    public void setPassengerId(String passengerId) {
-        this.passengerId = passengerId;
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PassengerGender passengerGender= (PassengerGender) o;
+        return passengerId.equals(passengerGender.passengerId)&& genId.equals(passengerGender.genId);
     }
 
-    public void setGenId(String genId) {
-        this.genId = genId;
+    public int hashCode(){
+        return Objects.hash(passengerId,genId);
     }
 
     @Override
@@ -46,12 +55,12 @@ public class PassengerGender
         private String passengerId;
         private String genId;
 
-        public PassengerGender.Builder setpassengerId(String passengerId) {
+        public Builder builderPassengerId(String passengerId) {
             this.passengerId =passengerId;
             return this;
         }
 
-        public PassengerGender.Builder setgenId(String genId) {
+        public Builder builderGenId(String genId) {
             this.genId = genId;
             return this;
         }
