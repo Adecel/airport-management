@@ -15,7 +15,8 @@ class EmployeeGenderFactoryTest {
 
     @Test
     void getEmployeeGender() {
-        EmployeeGender employeeGender= EmployeeGenderFactory.getEmployeeGender("","");
+        EmployeeGender employeeGender= EmployeeGenderFactory.getEmployeeGender("1234","9876");
         Assertions.assertNotNull(employeeGender);
+
     }
 }

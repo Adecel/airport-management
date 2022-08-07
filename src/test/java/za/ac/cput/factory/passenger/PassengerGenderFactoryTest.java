@@ -14,8 +14,8 @@ class PassengerGenderFactoryTest {
 
     @Test
     void getPassengerGender() {
-        PassengerGender passengerGender= PassengerGenderFactory.getPassengerGender("","");
+        PassengerGender passengerGender= PassengerGenderFactory.getPassengerGender("1234","9876");
         Assertions.assertNotNull(passengerGender);
-        //System.out.println(passengerGender);
+
     }
 }

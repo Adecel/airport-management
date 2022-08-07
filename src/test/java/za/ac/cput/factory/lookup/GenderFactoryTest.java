@@ -14,8 +14,8 @@ class GenderFactoryTest {
 
     @Test
     void getGender() {
-        Gender gender= GenderFactory.getGender("");
+        Gender gender= GenderFactory.getGender("Female");
         Assertions.assertNotNull(gender);
-        //System.out.println(gender);
+
     }
 }

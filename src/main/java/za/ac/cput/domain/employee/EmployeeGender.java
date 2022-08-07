@@ -7,11 +7,13 @@ package za.ac.cput.domain.employee;
 
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
 public class EmployeeGender
 {
+    @Id
     private String employeeId;
     private String genId;
 

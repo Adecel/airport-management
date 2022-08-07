@@ -9,6 +9,7 @@ import za.ac.cput.domain.employee.EmployeeGender;
 public class EmployeeGenderFactory
 {
      public static EmployeeGender getEmployeeGender(String employeeId, String genId){
+         if (employeeId.equals("") || genId.equals("")) return null;
          return new EmployeeGender.Builder().builderEmployeeId(employeeId).builderGenId(genId).build();
      }
 }
