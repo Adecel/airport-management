@@ -4,6 +4,7 @@
 */
 package za.ac.cput.repository.employee;
 
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.domain.employee.EmployeeGender;
 import za.ac.cput.domain.lookup.Gender;
