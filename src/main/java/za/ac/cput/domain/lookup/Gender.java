@@ -28,6 +28,10 @@ public class Gender
 
     }
 
+    public Gender() {
+
+    }
+
     public String getGenId() {
         return genId;
     }

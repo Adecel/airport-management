@@ -6,21 +6,28 @@ package za.ac.cput.domain.department;
  * Capstone Project Deliverables
  * */
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+@Entity
 public class Department {
+    @Id @NotNull
     private String depID;
+    @NotNull
     private String depName;
+    @NotNull
     private String description;
-
-    //private construction
-    private Department() {
-    }
 
     private Department(Builder builder) {
         this.depID = builder.depID;
         this.depName = builder.depName;
         this.description = builder.description;
+    }
+
+    public Department() {
+
     }
 
     public String getDepID() {
@@ -80,7 +87,7 @@ public class Department {
             return this;
         }
 
-        public Department.Builder copy(Department department) {
+        public Builder copy(Department department) {
             this.depID = department.depID;
             this.depName = department.depName;
             this.description = department.description;
