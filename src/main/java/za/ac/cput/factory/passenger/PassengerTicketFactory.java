@@ -5,7 +5,13 @@ import za.ac.cput.domain.passenger.PassengerTicket;
 import za.ac.cput.util.Helper;
 
 public class PassengerTicketFactory {
-    public static PassengerTicket createPassengerTicket(String passengerID,String ticketID,int price,String luggageID) {
-        return new PassengerTicket.Builder().setPassengerID(passengerID).setTicketID(ticketID).setPrice(price).setLuggageID(luggageID).build();
+    public static PassengerTicket createPassengerTicket(int price){
+        String ticketID = Helper.generateID();
+        String passengerID = Helper.generateID();
+        String luggageID = Helper.generateID();
+        if (Helper.isEmptyOrNull(ticketID) || Helper.isEmptyOrNull(passengerID) || Helper.isEmptyOrNull(luggageID))
+            throw new IllegalArgumentException();
+        return new PassengerTicket.Builder().setTicketID(ticketID).setPrice(price).build();
+
     }
 }

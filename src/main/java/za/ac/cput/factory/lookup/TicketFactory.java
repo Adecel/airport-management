@@ -7,7 +7,10 @@ import za.ac.cput.util.Helper;
 
 
 public class TicketFactory {
-    public static Ticket createTicket(String ticketID, String destination) {
+    public static Ticket createTicket(String destination) {
+        String ticketID = Helper.generateID();
+        if (Helper.isEmptyOrNull(ticketID))
+            throw new IllegalArgumentException();
         return new Ticket.Builder().setTicketID(ticketID).setDestination(destination).build();
     }
 }
