@@ -25,8 +25,6 @@ public class Helper {
             throw new IllegalArgumentException(String.format("Invalid value for param: %s", paramName));
     }
 
-
-
     public static String generateID() {
         return UUID.randomUUID().toString();
    }
