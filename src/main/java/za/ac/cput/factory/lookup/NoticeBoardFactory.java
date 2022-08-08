@@ -1,21 +1,20 @@
 package za.ac.cput.factory.lookup;
 
-//219383448 KISSIMBA NYEMBO ISAAC
+
+//216266882 Mogamad Tawfeeq Cupido
+//2022/08/07
 
 import za.ac.cput.domain.lookup.NoticeBoard;
 import za.ac.cput.util.Helper;
 
 public class NoticeBoardFactory {
-    public static NoticeBoard createNoticeBoard(String FlightID, String FlightName, String ArrivalTime, String DepartureTime, String Destination){
-        if (Helper.nullOrEmpty(FlightID)|| Helper.nullOrEmpty(FlightName) || Helper.nullOrEmpty(ArrivalTime) || Helper.nullOrEmpty(DepartureTime) || Helper.nullOrEmpty(Destination))
-            return null;
+    public static NoticeBoard noticeBoard(String flightID, String FlightName, String departureTime, String arrivalTime) {
 
-        return new NoticeBoard.Builder().setFlightName(FlightName)
-                .setFlightID(FlightID)
-                .setArrivalTime(ArrivalTime)
-                .setDepartureTime(DepartureTime)
-                .setDestination(Destination)
-                .build();
+        Helper.checkStringParam("flightID", flightID);
+        Helper.checkStringParam("flightName", FlightName);
+        Helper.checkStringParam("departureTime", departureTime);
+        Helper.checkStringParam("arrivalTime", arrivalTime);
 
+            return new NoticeBoard.Builder().setFlightID(flightID).setFlightName(FlightName).setDepartureTime(departureTime).setArrivalTime(arrivalTime).build();
+        }
     }
-}
