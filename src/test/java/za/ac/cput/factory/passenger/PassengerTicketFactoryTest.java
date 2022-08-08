@@ -12,9 +12,9 @@ class PassengerTicketFactoryTest {
 
     @Test
     public void test(){
-           PassengerTicket passengerTicket = PassengerTicketFactory.createPassengerTicket("220169136","CPT",100,"LUG001");
-            assertNotNull(passengerTicket);
-            System.out.println(passengerTicket);
+        PassengerTicket passengerTicket = PassengerTicketFactory.createPassengerTicket(100);
+        assertEquals(100, passengerTicket.getPrice());
+        System.out.println(passengerTicket);
     }
 
 }
