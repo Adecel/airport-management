@@ -3,26 +3,17 @@ package za.ac.cput.factory.lookup;
 
 //220169136
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
 import za.ac.cput.domain.lookup.Ticket;
-
+import za.ac.cput.factory.lookup.TicketFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TicketFactoryTest {
 
     @Test
-    void testWithSuccess(){
-        Ticket ticket = TicketFactory.createTicket("cape town");
-        assertEquals("cape town", ticket.getDestination());
+    public void test(){
+        Ticket ticket = TicketFactory.createTicket("A01234","Cape Town");
+        assertNotNull(ticket);
         System.out.println(ticket);
-
     }
-//    @Test
-//    void testWithFailure(){
-//        Ticket ticket = TicketFactory.createTicket("");
-//        assertEquals("", ticket.getDestination());
-//        System.out.println(ticket);
-//    }
-
 }
