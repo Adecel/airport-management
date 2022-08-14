@@ -9,6 +9,8 @@ package za.ac.cput.service.departement;
 import za.ac.cput.domain.department.AirportManagement;
 import za.ac.cput.service.IService;
 
-public interface AirportManagementService extends IService<AirportManagement, String> {
+import java.util.List;
 
+public interface AirportManagementService extends IService<AirportManagement, String> {
+    List<AirportManagement> findByAirportName(String airportName);
 }
