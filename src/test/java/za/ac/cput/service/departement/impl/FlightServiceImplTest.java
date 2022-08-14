@@ -1,17 +1,15 @@
 package za.ac.cput.service.departement.impl;
 
+//216266882 Mogamad Tawfeeq Cupido
+
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.department.Flight;
 import za.ac.cput.factory.department.FlightFactory;
-import za.ac.cput.repository.department.FlightRepository;
-import za.ac.cput.service.departement.FlightService;
 
 import java.util.List;
 import java.util.Optional;
