@@ -5,13 +5,15 @@ package za.ac.cput.domain.department;
 
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Flight {
 
-    @Id @NotNull
+
+    @NotNull @Id
     private String flightID;
     @NotNull
     private String capacity;

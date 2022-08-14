@@ -65,7 +65,7 @@ public class PassengerGender
             return this;
         }
 
-        public PassengerGender.Builder cody(PassengerGender passGen)
+        public Builder cody(PassengerGender passGen)
         {
             this.passengerId=passGen.passengerId;
             this.genId=passGen.genId;
