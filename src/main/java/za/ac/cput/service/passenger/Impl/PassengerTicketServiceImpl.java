@@ -19,6 +19,14 @@ public class PassengerTicketServiceImpl implements PassengerTicketService {
 
     @Override
     public void delete(PassengerTicket passengerTicket) {this.repository.delete(passengerTicket);}
+//    @Override
+//    public boolean delete(String s) {
+//        if (this.repository.existsById(s)) {
+//            this.repository.deleteById(s);
+//            return true;
+//        }
+//        return false;
+//    }
 
     @Override
     public PassengerTicket FindByTicketID(String ticketID) {return this.repository.findByTicketID(ticketID);}
