@@ -21,6 +21,15 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public void delete(Ticket ticket) {this.repository.delete(ticket);}
 
+//    @Override
+//    public boolean delete(String id) {
+//        if (this.repository.existsById(id)) {
+//            this.repository.deleteById(id);
+//            return true;
+//        }
+//        return false;
+//
+//    }
 
     @Override
     public Ticket FindByTicketID(String ticketID) {return this.repository.findByTicketID(ticketID);}
