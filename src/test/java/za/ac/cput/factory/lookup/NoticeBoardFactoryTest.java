@@ -13,7 +13,7 @@ class NoticeBoardFactoryTest {
     @Test
     void buildWithError() {
         Exception exception = assertThrows(IllegalArgumentException.class,() ->
-            NoticeBoardFactory.noticeBoard("", "500", "13:00", "18:00"));
+            NoticeBoardFactory.noticeBoard("", "500", "13:00", "18:00","Cape Town"));
 
         System.out.println(exception.getMessage());
         assertTrue(exception.getMessage().contains("flightID"));
@@ -22,7 +22,7 @@ class NoticeBoardFactoryTest {
     @Test
     void buildWithSuccess() {
         NoticeBoard noticeBoard= NoticeBoardFactory
-                .noticeBoard("test-id","500","13:00","18:00");
+                .noticeBoard("test-id","500","13:00","18:00", "Cape Town");
         System.out.println(noticeBoard);
         assertAll(
                 () -> assertNotNull(noticeBoard),
