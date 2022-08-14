@@ -1,5 +1,10 @@
 package za.ac.cput.service.passenger.Impl;
 
+/*
+ * Author : Mahad Hassan
+ * Student Number : 219197229
+ * Capstone Project Deliverables
+ * */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.passenger.PassengerContact;
@@ -9,12 +14,13 @@ import za.ac.cput.service.passenger.PassengerContactService;
 import java.util.List;
 import java.util.Optional;
 @Service
-public class PassengersServiceImpl implements PassengerContactService {
+public class PassengerContactServiceImpl implements PassengerContactService {
 
     private final PassengerContactRepository repository;
 
     @Autowired
-    public PassengersServiceImpl(PassengerContactRepository repository) {
+    public PassengerContactServiceImpl(PassengerContactRepository repository) {
+
         this.repository = repository;
     }
 
@@ -36,6 +42,7 @@ public class PassengersServiceImpl implements PassengerContactService {
 
     @Override
     public List<PassengerContact> findAll() {
+
         return this.repository.findAll();
     }
 }

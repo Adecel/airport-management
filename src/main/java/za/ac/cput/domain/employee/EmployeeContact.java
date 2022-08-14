@@ -3,6 +3,8 @@ package za.ac.cput.domain.employee;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 //        * aurthor : Mahad Hassan
 //         *
@@ -15,8 +17,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "EmployeeContact")
 public class EmployeeContact {
-  @Id
-  private String EmployeeId;
+    @NotNull @Id
+  String EmployeeId;
     private String ConId;
 
     protected EmployeeContact() {

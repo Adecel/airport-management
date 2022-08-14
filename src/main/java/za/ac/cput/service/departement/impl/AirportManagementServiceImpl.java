@@ -7,6 +7,7 @@ package za.ac.cput.service.departement.impl;
  * */
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.department.AirportManagement;
 import za.ac.cput.factory.department.AirportManagementFactory;
 import za.ac.cput.repository.department.AirportManagementRepository;
@@ -14,7 +15,6 @@ import za.ac.cput.service.departement.AirportManagementService;
 
 import java.util.List;
 import java.util.Optional;
-
 public class AirportManagementServiceImpl implements AirportManagementService {
     private final AirportManagementRepository repository;
 
