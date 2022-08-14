@@ -30,7 +30,7 @@ public class PassengerTicket implements Serializable {
 
     @Override
     public String toString() {
-        return "PassengerTicket{" +
+        return "PassengerTicketService{" +
                 "passengerID='" + passengerID + '\'' +
                 ", ticketID='" + ticketID + '\'' +
                 ", price=" + price +
