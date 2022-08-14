@@ -12,6 +12,7 @@ import za.ac.cput.factory.department.AirportManagementFactory;
 import za.ac.cput.repository.department.AirportManagementRepository;
 import za.ac.cput.service.departement.AirportManagementService;
 
+import java.util.List;
 import java.util.Optional;
 
 public class AirportManagementServiceImpl implements AirportManagementService {
@@ -41,5 +42,10 @@ public class AirportManagementServiceImpl implements AirportManagementService {
     @Override
     public void delete(AirportManagement airportManagement) {
 
+    }
+
+    @Override
+    public List<AirportManagement> findByAirportName(String airportName) {
+        return this.repository.findBy(airportName);
     }
 }
