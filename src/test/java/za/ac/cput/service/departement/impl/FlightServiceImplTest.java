@@ -3,64 +3,57 @@ package za.ac.cput.service.departement.impl;
 //216266882 Mogamad Tawfeeq Cupido
 
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.department.Flight;
+import za.ac.cput.domain.department.Luggage;
 import za.ac.cput.factory.department.FlightFactory;
+import za.ac.cput.factory.department.LuggageFactory;
 
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Service
+@SpringBootTest
+@TestMethodOrder(MethodOrderer.MethodName.class)
+
 class FlightServiceImplTest {
-
-    private Flight flight;
-   @Autowired private FlightServiceImpl service;
-
-
-
-    @BeforeEach
-    void setUp() throws Exception {
-//        Flight flight = new Flight.Builder().setFlightID("AQE252").setCapacity("5200").setDepartureTime("15:00").setArrivalTime("02:00").build();
-        this.flight = FlightFactory.flight("AQE252","5200","15:00","02:00");
-        Flight saved = this.service.save(this.flight);
-        assertEquals(this.flight, saved);
-    }
-
-    @AfterEach
-    void tearDown() {
-
-        this.service.delete(this.flight);
-        List<Flight> flightList = this.service.findAll();
-        assertEquals(0, flightList.size());
-    }
+    @Autowired
+    private FlightServiceImpl flightService;
+    Flight flight = FlightFactory.flight("CEZ-2150", "100", "10:50","18:00");
 
 
     @Test
-    void read() {
+    void a_save() {
+        Flight flight1 = flightService.save(flight);
+        assertNotNull(flight1);
+    }
 
 
-        Optional<Flight> read = this.service.read(this.flight.getFlightID());
-       System.out.println(read);
+
+    @Test
+    void b_read() {
+        Optional<Flight> read = this.flightService.read("CEZ-2150");
+        assertNotNull(read);
+        System.out.println(read);
+    }
+
+    @Test
+    void d_delete() {
+        this.flightService.delete(flight);
+
+    }
+
+    @Test
+    void c_findById() {
+        Optional<Flight> flight2 = this.flightService.findById("CEZ-2150");
+        assertNotNull(flight2);
+        System.out.println(flight2);
         assertAll(
-                () -> assertTrue(read.isPresent()),
-                () -> assertEquals(flight, read.get())
-
+                () -> assertEquals("CEZ-2150", flight.getFlightID())
         );
-
-//        return this.repository.findById(flightID);
-
-     //   Optional<Flight> read = this.read(flightID);
-    }
-
-    @Test
-    void findAll() {
-        List<Flight> flightList = this.service.findAll();
-        assertEquals(1, flightList.size());
     }
 }

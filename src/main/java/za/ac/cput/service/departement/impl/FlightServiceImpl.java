@@ -14,11 +14,18 @@ import java.util.Optional;
 @Service
 public class FlightServiceImpl implements FlightService {
     private final FlightRepository repository;
-
+    private static FlightService SERVICE;
     @Autowired
-    public FlightServiceImpl(FlightRepository repository){
-        this.repository = repository;
+    private FlightServiceImpl() {
+        this.repository = (FlightRepository) FlightServiceImpl.SERVICE;
     }
+
+    public static FlightService getService() {
+        if (SERVICE == null)
+            SERVICE = new FlightServiceImpl();
+        return SERVICE;
+    }
+
 
     @Override
     public Flight save(Flight flight) {
@@ -40,4 +47,10 @@ public class FlightServiceImpl implements FlightService {
     public List<Flight> findAll() {
         return this.repository.findAll();
     }
+
+    @Override
+    public Optional<Flight> findById(String flightID) {
+        return this.repository.findById(flightID);
+    }
 }
+
