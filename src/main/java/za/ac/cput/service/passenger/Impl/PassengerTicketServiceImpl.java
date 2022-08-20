@@ -1,13 +1,14 @@
 package za.ac.cput.service.passenger.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.passenger.PassengerTicket;
 import za.ac.cput.repository.passenger.PassengerTicketRepository;
 import za.ac.cput.service.passenger.PassengerTicketService;
 import java.util.Optional;
 
 
-
+@Service
 public class PassengerTicketServiceImpl implements PassengerTicketService {
     private PassengerTicketRepository repository;
     @Autowired PassengerTicketServiceImpl(PassengerTicketRepository passengerTicketRepository) {this.repository = passengerTicketRepository;}
