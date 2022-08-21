@@ -15,16 +15,9 @@ import java.util.Optional;
 public class NoticeboardServiceImpl implements NoticeboardService {
 
     private final NoticeboardRepository repository;
-    private static NoticeboardService SERVICE;
     @Autowired
-    private NoticeboardServiceImpl() {
-        this.repository = (NoticeboardRepository) NoticeboardServiceImpl.SERVICE;
-    }
-
-    public static NoticeboardService getService() {
-        if (SERVICE == null)
-            SERVICE = new NoticeboardServiceImpl();
-        return SERVICE;
+    public NoticeboardServiceImpl(NoticeboardRepository repository){
+        this.repository  = repository;
     }
 
 

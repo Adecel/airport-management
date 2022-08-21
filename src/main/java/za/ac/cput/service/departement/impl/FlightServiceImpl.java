@@ -14,16 +14,11 @@ import java.util.Optional;
 @Service
 public class FlightServiceImpl implements FlightService {
     private final FlightRepository repository;
-    private static FlightService SERVICE;
-    @Autowired
-    private FlightServiceImpl() {
-        this.repository = (FlightRepository) FlightServiceImpl.SERVICE;
-    }
 
-    public static FlightService getService() {
-        if (SERVICE == null)
-            SERVICE = new FlightServiceImpl();
-        return SERVICE;
+
+    @Autowired
+    public FlightServiceImpl(FlightRepository repository){
+        this.repository  = repository;
     }
 
 
@@ -53,4 +48,3 @@ public class FlightServiceImpl implements FlightService {
         return this.repository.findById(flightID);
     }
 }
-

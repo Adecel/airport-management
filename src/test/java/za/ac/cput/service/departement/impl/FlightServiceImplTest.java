@@ -3,16 +3,14 @@ package za.ac.cput.service.departement.impl;
 //216266882 Mogamad Tawfeeq Cupido
 
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Service;
 import za.ac.cput.domain.department.Flight;
-import za.ac.cput.domain.department.Luggage;
 import za.ac.cput.factory.department.FlightFactory;
-import za.ac.cput.factory.department.LuggageFactory;
 
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -49,9 +47,9 @@ class FlightServiceImplTest {
 
     @Test
     void c_findById() {
-        Optional<Flight> flight2 = this.flightService.findById("CEZ-2150");
-        assertNotNull(flight2);
-        System.out.println(flight2);
+        Optional<Flight> flight1 = this.flightService.findById("CEZ-2150");
+        assertNotNull(flight1);
+        System.out.println(flight1);
         assertAll(
                 () -> assertEquals("CEZ-2150", flight.getFlightID())
         );

@@ -2,6 +2,7 @@ package za.ac.cput.service.departement;
 
 //216266882 Mogamad Tawfeeq Cupido
 
+import org.springframework.data.repository.query.Param;
 import za.ac.cput.domain.department.Flight;
 import za.ac.cput.service.IService;
 
@@ -12,5 +13,6 @@ public interface FlightService extends IService<Flight, String> {
 
     List<Flight>  findAll();
 
-    Optional<Flight> findById(String flightID);
+
+    Optional<Flight> findById(@Param("flightID") String flightID);
 }
