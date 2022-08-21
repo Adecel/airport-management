@@ -14,15 +14,13 @@ public class EmployeeContactFactory {
 
     public static EmployeeContact CreateEmployeeContact(String employeeId,String conId ){
 
-
-       if(Helper.isEmptyOrNull(employeeId)|| Helper.isEmptyOrNull(conId))
-           return null;
-
-
-        return new EmployeeContact.Builder().setEmployeeId(employeeId)
+        if(Helper.isEmptyOrNull(employeeId) || Helper.isEmptyOrNull(conId)) {
+            return null;
+        }
+        return new EmployeeContact.Builder()
+                .setEmployeeId(employeeId)
                 .setConId(conId)
                 .build();
-
     }
 
 }

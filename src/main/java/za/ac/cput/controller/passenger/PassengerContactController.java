@@ -1,4 +1,4 @@
-package za.ac.cput.controller.lookup;
+package za.ac.cput.controller.passenger;
 //        * aurthor : Mahad Hassan
 //         *
 //         * student number (219122822)
@@ -13,42 +13,43 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.domain.lookup.Contact;
-import za.ac.cput.service.lookup.Impl.ContactServiceImpl;
+import za.ac.cput.domain.passenger.PassengerContact;
+import za.ac.cput.service.passenger.Impl.PassengerContactServiceImpl;
 
 import javax.validation.Valid;
+
 @RestController
-@RequestMapping("contact")
-public class ContactController {
-    private final ContactServiceImpl service;
+@RequestMapping("passenger-contact")
+public class PassengerContactController {
+
+    private final PassengerContactServiceImpl service;
 
     @Autowired
-    public ContactController(ContactServiceImpl service) {
+    public PassengerContactController(PassengerContactServiceImpl service) {
         this.service = service;
     }
 
-    @PostMapping("save")
-    public ResponseEntity<Contact> save(@Valid @RequestBody Contact contact){
 
-        Contact saved = this.service.save(contact);
+    @PostMapping("save")
+    public ResponseEntity<PassengerContact> save(@Valid @RequestBody PassengerContact passengerContact){
+        PassengerContact saved = this.service.save(passengerContact);
         return ResponseEntity.ok(saved);
     }
 
-
     @GetMapping("read")
-    public ResponseEntity<Contact> read(String conId) {
+    public ResponseEntity<PassengerContact> read(String passengerId) {
 
-        Contact read = service.read(conId)
+        PassengerContact read = service.read(passengerId)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
 
         return ResponseEntity.ok(read);
 
     }
     @DeleteMapping("delete")
-    public  ResponseEntity<Void> delete(Contact contact) {
-        this.service.delete(contact);
+    public  ResponseEntity<Void> delete(PassengerContact passengerContact) {
+        this.service.delete(passengerContact);
         return ResponseEntity.noContent().build();
 
     }
-}
 
+}
