@@ -1,6 +1,8 @@
 package za.ac.cput.service.lookup.Impl;
 
-//216266882 Mogamad Tawfeeq Cupido
+//Mogamad Tawfeeq Cupido-
+//216266882
+//21 August 2022
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,13 +17,10 @@ import java.util.Optional;
 public class NoticeboardServiceImpl implements NoticeboardService {
 
     private final NoticeboardRepository repository;
-
     @Autowired
     public NoticeboardServiceImpl(NoticeboardRepository repository){
-        this.repository = repository;
+        this.repository  = repository;
     }
-
-
 
 
     @Override
@@ -43,4 +42,10 @@ public class NoticeboardServiceImpl implements NoticeboardService {
     public List<NoticeBoard> findAll() {
         return this.repository.findAll();
     }
+
+    @Override
+    public Optional<NoticeBoard> findById(String flightID) {
+        return this.repository.findById(flightID);
+    }
+
 }

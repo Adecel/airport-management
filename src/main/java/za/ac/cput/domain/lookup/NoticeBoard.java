@@ -1,18 +1,19 @@
 package za.ac.cput.domain.lookup;
 
-//216266882 Mogamad Tawfeeq Cupido
-//2022/08/07
+//Mogamad Tawfeeq Cupido-
+//216266882
+//21 August 2022
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
+@Table(name = "NoticeBoard")
 public class NoticeBoard {
 
-    @Id @NotNull
+
+    @NotNull @Id
     private String FlightID;
     @NotNull
     private String FlightName;
@@ -22,6 +23,10 @@ public class NoticeBoard {
     private String DepartureTime;
     @NotNull
     private String Destination;
+
+
+    public NoticeBoard() {
+    }
 
     private NoticeBoard(Builder builder){
         this.FlightID = builder.FlightID;

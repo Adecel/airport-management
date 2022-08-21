@@ -1,17 +1,15 @@
 package za.ac.cput.domain.department;
 
-//216266882 Mogamad Tawfeeq Cupido
-//2022/08/07
+//Mogamad Tawfeeq Cupido-
+//216266882
+//21 August 2022
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "Flight")
 public class Flight {
-
 
     @NotNull @Id
     private String flightID;

@@ -1,6 +1,8 @@
 package za.ac.cput.service.departement.impl;
 
-//  216266882 Mogamad Tawfeeq Cupido
+//Mogamad Tawfeeq Cupido-
+//216266882
+//21 August 2022
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +17,12 @@ import java.util.Optional;
 public class FlightServiceImpl implements FlightService {
     private final FlightRepository repository;
 
+
     @Autowired
     public FlightServiceImpl(FlightRepository repository){
-        this.repository = repository;
+        this.repository  = repository;
     }
+
 
     @Override
     public Flight save(Flight flight) {
@@ -39,5 +43,10 @@ public class FlightServiceImpl implements FlightService {
     @Override
     public List<Flight> findAll() {
         return this.repository.findAll();
+    }
+
+    @Override
+    public Optional<Flight> findById(String flightID) {
+        return this.repository.findById(flightID);
     }
 }
