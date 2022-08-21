@@ -3,50 +3,42 @@ package za.ac.cput.service.lookup.Impl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.lookup.Ticket;
 import za.ac.cput.factory.lookup.TicketFactory;
-
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
 
+@SpringBootTest
 class TicketServiceImplTest {
     @Autowired
-    private TicketServiceImpl service;
-
+    private TicketServiceImpl ticketService;
     private static Ticket ticket1 = TicketFactory.createTicket("CAPE TOWN");
-
 
     @Test
     void save() {
-        System.out.println("Create:"+ticket1);
-        Ticket created = service.save(ticket1);
-        assertNotNull(created);
-        System.out.println("Created:"+created);
+        Ticket ticket = ticketService.save(ticket1);
+        assertNotNull(ticket);
+        System.out.println(ticket);
     }
 
     @Test
     void read() {
-        Optional<Ticket> read = service.read(ticket1.getTicketID());
-        assertEquals(ticket1, read.get());
-        System.out.println("Read:"+read);
+        Optional<Ticket> read = ticketService.read("CAPE TOWN");
+        assertNotNull(read);
+        System.out.println(read);
     }
 
     @Test
     void delete() {
-        Optional<Ticket> read = service.read(ticket1.getTicketID());
-        service.delete(read.get());
-        Optional<Ticket> deleted = service.read(ticket1.getTicketID());
-        assertNull(deleted);
-        System.out.println("Deleted:"+deleted);
+        ticketService.delete(ticket1);
     }
 
     @Test
     void findByTicketID() {
-        Ticket found = service.FindByTicketID(ticket1.getTicketID());
-        assertEquals(found.getTicketID(), ticket1.getTicketID());
-        System.out.println("Found:"+found);
+        Ticket ticket = ticketService.FindByTicketID("CAPE TOWN");
+        assertNotNull(ticket);
+        System.out.println(ticket);
     }
 }

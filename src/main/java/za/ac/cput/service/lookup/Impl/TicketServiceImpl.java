@@ -1,19 +1,21 @@
 package za.ac.cput.service.lookup.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.lookup.Ticket;
 import za.ac.cput.repository.lookup.TicketRepository;
 import za.ac.cput.service.lookup.TicketService;
 
 import java.util.Optional;
-
+@Service
 public class TicketServiceImpl implements TicketService {
-    private TicketRepository repository;
+    private final TicketRepository repository;
 
     @Autowired
     TicketServiceImpl(TicketRepository repository) {this.repository = repository;}
     @Override
-    public Ticket save(Ticket ticket) {return this.repository.save(ticket);}
+    public Ticket save(Ticket ticket) {
+        return this.repository.save(ticket);}
 
     @Override
     public Optional<Ticket> read(String s) {return this.repository.findById(s);}
