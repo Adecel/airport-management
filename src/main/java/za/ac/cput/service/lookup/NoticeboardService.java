@@ -1,6 +1,8 @@
 package za.ac.cput.service.lookup;
 
-//216266882 Mogamad Tawfeeq Cupido
+//Mogamad Tawfeeq Cupido
+//216266882
+//21 August 2022
 
 import za.ac.cput.domain.lookup.NoticeBoard;
 import za.ac.cput.service.IService;
