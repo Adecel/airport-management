@@ -6,16 +6,31 @@ package za.ac.cput.domain.employee;
  * Capstone Project Deliverables
  * */
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+// thinking about ValueObject (video: June assessment model, minute: "22:01 ")
+// special functionality, refer to the resource on blackboard
+
+@Entity
 public class Employee {
+
+    @Id
+    @NotNull
     private String employeeID;
+    @NotNull
     private String employeeName;
+//    @ForeignKey
+//    @ManyToOne
+//    @JoinColumn()
+    @NotNull
     private String depID;
+    @NotNull
     private String depName;
 
     //private construction
-    private Employee() {
+    protected Employee() {
 
     }
     private Employee(Builder builder) {

@@ -46,6 +46,7 @@ public class AirportManagementServiceImpl implements AirportManagementService {
 
     @Override
     public List<AirportManagement> findByAirportName(String airportName) {
-        return this.repository.findBy(airportName);
+        return null;
     }
+
 }

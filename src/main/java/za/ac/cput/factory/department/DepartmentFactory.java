@@ -11,8 +11,9 @@ import za.ac.cput.util.Helper;
 
 public class DepartmentFactory {
 
-    public static Department build(String depID, String depName, String description){
-        Helper.checkStringParam("employeeNumber", depID);
+    public static Department build(/*String depID,*/ String depName, String description){
+//        Helper.checkStringParam("employeeNumber", depID);
+        String depID = Helper.generateID();  //I have to check this generator id again
         Helper.checkStringParam("depName", depName);
         Helper.checkStringParam("description", description);
 

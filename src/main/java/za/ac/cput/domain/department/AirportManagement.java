@@ -6,21 +6,32 @@ package za.ac.cput.domain.department;
 * Capstone Project Deliverables
 * */
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+@Entity
 public class AirportManagement {
 
-    private final String airportName;
-    private final String cityName;
-    private final  String area;
+    @Id @NotNull
+    private String airportName;
+    @NotNull
+    private String cityName;
+    @NotNull
+    private String area;
 
     //private construction
+
+    protected AirportManagement() {
+    }
 
     private AirportManagement(Builder builder) {
         this.airportName = builder.airportName;
         this.cityName = builder.cityName;
         this.area = builder.area;
     }
+
 
     //getters
     public String getAirportName() {

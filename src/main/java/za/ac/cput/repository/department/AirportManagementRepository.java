@@ -12,4 +12,5 @@ import za.ac.cput.domain.department.AirportManagement;
 
 @Repository
 public interface AirportManagementRepository extends JpaRepository<AirportManagement, String> {
+    public AirportManagement findByAirportName(String airportName);
 }

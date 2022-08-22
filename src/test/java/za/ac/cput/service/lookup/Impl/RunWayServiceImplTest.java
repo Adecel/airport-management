@@ -1,13 +1,13 @@
-package za.ac.cput.service.departement.impl;
+package za.ac.cput.service.lookup.Impl;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.domain.passenger.Passengers;
-import za.ac.cput.factory.passenger.PassengersFactory;
-import za.ac.cput.service.passenger.Impl.PassengersServiceImpl;
+import za.ac.cput.domain.lookup.RunWay;
+import za.ac.cput.factory.lookup.RunwayFactory;
+import za.ac.cput.service.lookup.Impl.RunWayServiceImpl;
 
 import java.util.Optional;
 
@@ -16,37 +16,36 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.MethodName.class)
 
-class PassengersServiceImplTest {
+class RunWayServiceImplTest {
     @Autowired
-    private PassengersServiceImpl passengersService;
-    Passengers passengers = PassengersFactory.createPassengers("219383448", "Sandra", "Nyota","32");
+    private RunWayServiceImpl runWayService;
+    RunWay runWay = RunwayFactory.createRunway("RW12", "Lufthanza", "Occupied");
 
     @Test
     void a_save() {
-        Passengers temp = passengersService.save(passengers);
+        RunWay temp = runWayService.save(runWay);
         assertNotNull(temp);
     }
 
     @Test
     void b_read() {
-        Optional<Passengers> read = this.passengersService.read("219383448");
+        Optional<RunWay> read = this.runWayService.read("RW12");
         assertNotNull(read);
         System.out.println(read);
     }
 
     @Test
     void d_deleteByID() {
-        this.passengersService.deleteByID("219383448");
+        this.runWayService.deleteByID("RW12");
     }
 
     @Test
     void c_findById() {
-        Optional<Passengers> saveEmp = this.passengersService.findById("219383448");
+        Optional<RunWay> saveEmp = this.runWayService.findById("RW12");
         assertNotNull(saveEmp);
         System.out.println(saveEmp);
         assertAll(
-                () -> assertEquals("219383448", passengers.getPassengerID())
+                () -> assertEquals("RW12", runWay.getRunwayNumber())
         );
     }
-
 }

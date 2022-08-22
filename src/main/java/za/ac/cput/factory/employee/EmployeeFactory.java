@@ -12,6 +12,9 @@ import za.ac.cput.util.Helper;
 public class EmployeeFactory {
 
     public static Employee build(String employeeID, String employeeName, String depID, String depName){
+
+        // String employeeID = Helper.generateID();
+
         if (employeeID == null || employeeID.isEmpty()){
             throw new IllegalArgumentException("employee id is required!");
         }
