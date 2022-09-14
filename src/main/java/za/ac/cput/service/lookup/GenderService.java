@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface GenderService extends IService<Gender,String>{
 
+    List<Gender> readAll();
 }
