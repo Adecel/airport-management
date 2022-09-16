@@ -5,12 +5,14 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.domain.passenger.PassengerTicket;
 import za.ac.cput.repository.passenger.PassengerTicketRepository;
 import za.ac.cput.service.passenger.PassengerTicketService;
+
+import java.util.List;
 import java.util.Optional;
 
 
 @Service
 public class PassengerTicketServiceImpl implements PassengerTicketService {
-    private PassengerTicketRepository repository;
+    private  PassengerTicketRepository repository;
     @Autowired PassengerTicketServiceImpl(PassengerTicketRepository passengerTicketRepository) {this.repository = passengerTicketRepository;}
 
     @Override
@@ -32,5 +34,8 @@ public class PassengerTicketServiceImpl implements PassengerTicketService {
 
     @Override
     public PassengerTicket FindByTicketID(String ticketID) {return this.repository.findByTicketID(ticketID);}
-    }
+
+    @Override
+    public List<PassengerTicket> findAll() {return this.repository.findAll();}
+}
 
