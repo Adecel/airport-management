@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.domain.employee.Employee;
 import za.ac.cput.repository.employee.EmployeeRepository;
 import za.ac.cput.service.employee.EmployeeService;
+import za.ac.cput.util.exception.UserNotFoundException;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +12,6 @@ import java.util.Optional;
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository repository;
-
     @Autowired
     public EmployeeServiceImpl(EmployeeRepository repository){
         this.repository = repository;
@@ -19,7 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee save(Employee employee) throws Exception {
-        return null;
+        return repository.save(employee);
     }
 
     @Override
@@ -34,6 +34,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<Employee> findAll() {
-        return null;
+        return repository.findAll();
+    }
+
+    @Override
+    public Employee findEmployeeById(String employeeID) {
+        return repository.findEmployeeById(employeeID)
+                .orElseThrow(() -> new UserNotFoundException("This ID"
+                        + employeeID + "was not found"));
+    }
+
+    @Override
+    public void deleteById(String employeeID) {
+        repository.deleteEmployeeById(employeeID);
     }
 }
