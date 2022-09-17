@@ -36,7 +36,7 @@ public class RunWayServiceImpl implements RunWayService {
     }
 
     @Override
-    public void delete(RunWay runWay) {
+    public void delete(String runWay) {
         this.repository.delete(runWay);
 
     }

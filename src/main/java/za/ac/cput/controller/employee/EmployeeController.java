@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.domain.employee.Employee;
 import za.ac.cput.service.employee.EmployeeService;
-
+/*
+ * Author : Adecel Rusty Mabiala
+ * Student Number : 219197229
+ * Capstone Project Deliverables
+ * */
 
 import java.util.List;
 
@@ -35,7 +39,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Employee> save(@RequestBody Employee employee) throws Exception {
+    public ResponseEntity<Employee> save(@RequestBody Employee employee) {
 //        log.info("Save request: {}", employee);
         Employee save1 = employeeService.save(employee);
         return new ResponseEntity<>(save1, HttpStatus.CREATED);

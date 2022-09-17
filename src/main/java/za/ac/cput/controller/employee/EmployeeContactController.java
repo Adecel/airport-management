@@ -47,7 +47,7 @@ public class EmployeeContactController {
     }
     @DeleteMapping("delete")
     public  ResponseEntity<Void> delete(EmployeeContact employeeContact) {
-        this.service.delete(employeeContact);
+        this.service.delete(String.valueOf(employeeContact));
         return ResponseEntity.noContent().build();
 
     }

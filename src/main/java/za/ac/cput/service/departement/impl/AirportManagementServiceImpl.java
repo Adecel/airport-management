@@ -15,6 +15,8 @@ import za.ac.cput.service.departement.AirportManagementService;
 
 import java.util.List;
 import java.util.Optional;
+
+@Service
 public class AirportManagementServiceImpl implements AirportManagementService {
     private final AirportManagementRepository repository;
 
@@ -35,18 +37,24 @@ public class AirportManagementServiceImpl implements AirportManagementService {
     }
 
     @Override
-    public Optional<AirportManagement> read(String s) {
+    public Optional<AirportManagement> read(String airportName) {
         return Optional.empty();
     }
 
     @Override
-    public void delete(AirportManagement airportManagement) {
-
+    public void delete(String airportManagement) {
+        this.repository.delete(airportManagement);
     }
+
 
     @Override
     public List<AirportManagement> findByAirportName(String airportName) {
-        return null;
+        return (List<AirportManagement>) this.repository.findByAirportName(airportName);
+    }
+
+    @Override
+    public List<AirportManagement> findAll() {
+        return this.repository.findAll();
     }
 
 }

@@ -26,7 +26,7 @@ public class GenderServiceImpl implements GenderService {
     }
 
     @Override
-    public void delete(Gender gender) {
+    public void delete(String gender) {
 
         this.repository.delete(gender);
     }

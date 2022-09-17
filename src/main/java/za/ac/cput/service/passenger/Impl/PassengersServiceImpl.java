@@ -2,10 +2,10 @@ package za.ac.cput.service.passenger.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.domain.entity.Passengers;
-import za.ac.cput.factory.PassengersFactory;
-import za.ac.cput.repository.impl.PassengersRepository;
-import za.ac.cput.service.PassengersService;
+import za.ac.cput.domain.passenger.Passengers;
+import za.ac.cput.factory.passenger.PassengersFactory;
+import za.ac.cput.repository.passenger.PassengersRepository;
+import za.ac.cput.service.passenger.PassengersService;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,7 +39,7 @@ public class PassengersServiceImpl implements PassengersService {
     }
 
     @Override
-    public void delete(Passengers passengers) {
+    public void delete(String passengers) {
         this.repository.delete(passengers);
     }
 

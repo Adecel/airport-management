@@ -36,7 +36,7 @@ public class LuggageServiceImpl implements LuggageService {
     }
 
     @Override
-    public void delete(Luggage luggage) {
+    public void delete(String luggage) {
         this.repository.delete(luggage);
 
     }

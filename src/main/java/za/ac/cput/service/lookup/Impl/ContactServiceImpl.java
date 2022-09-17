@@ -34,7 +34,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public void delete(Contact contact) {
+    public void delete(String contact) {
         this.repository.delete(contact);
 
     }
