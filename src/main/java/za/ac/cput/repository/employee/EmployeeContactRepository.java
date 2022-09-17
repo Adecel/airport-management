@@ -8,4 +8,5 @@ public interface EmployeeContactRepository extends JpaRepository<EmployeeContact
 
     public EmployeeContact findByEmployeeNumber(String employeeNumber);
 
+    void delete(String employeeContact);
 }

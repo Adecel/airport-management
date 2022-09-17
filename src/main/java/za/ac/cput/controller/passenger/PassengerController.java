@@ -7,8 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.domain.entity.Passengers;
-import za.ac.cput.service.PassengersService;
+import za.ac.cput.domain.passenger.Passengers;
+import za.ac.cput.service.passenger.PassengersService;
 
 import javax.validation.Valid;
 import java.util.List;

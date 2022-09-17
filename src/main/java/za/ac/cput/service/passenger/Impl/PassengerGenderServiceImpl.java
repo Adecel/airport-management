@@ -28,7 +28,7 @@ public class PassengerGenderServiceImpl implements PassengerGenderService{
     }
 
     @Override
-    public void delete(PassengerGender passengerGender)
+    public void delete(String passengerGender)
     {
         this.repository.delete(passengerGender);
 

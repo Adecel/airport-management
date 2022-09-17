@@ -34,7 +34,7 @@ public class NoticeboardServiceImpl implements NoticeboardService {
     }
 
     @Override
-    public void delete(NoticeBoard noticeBoard) {
+    public void delete(String noticeBoard) {
         this.repository.delete(noticeBoard);
     }
 

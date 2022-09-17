@@ -54,7 +54,7 @@ public class FlightController {
     @DeleteMapping("delete")
     public ResponseEntity<Void> delete(Flight flight) {
         log.info("Delete request: {}", flight);
-        this.flightService.delete(flight);
+        this.flightService.delete(String.valueOf(flight));
         return ResponseEntity.noContent().build();
     }
 

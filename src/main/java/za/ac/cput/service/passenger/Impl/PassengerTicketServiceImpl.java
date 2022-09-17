@@ -22,7 +22,7 @@ public class PassengerTicketServiceImpl implements PassengerTicketService {
     public Optional<PassengerTicket> read(String s) {return this.repository.findById(s);}
 
     @Override
-    public void delete(PassengerTicket passengerTicket) {this.repository.delete(passengerTicket);}
+    public void delete(String passengerTicket) {this.repository.delete(passengerTicket);}
 //    @Override
 //    public boolean delete(String s) {
 //        if (this.repository.existsById(s)) {

@@ -22,7 +22,7 @@ public class TicketServiceImpl implements TicketService {
     public Optional<Ticket> read(String s) {return this.repository.findById(s);}
 
     @Override
-    public void delete(Ticket ticket) {this.repository.delete(ticket);}
+    public void delete(String ticket) {this.repository.delete(ticket);}
 
 //    @Override
 //    public boolean delete(String id) {
