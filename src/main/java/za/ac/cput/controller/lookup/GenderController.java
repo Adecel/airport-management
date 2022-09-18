@@ -55,7 +55,7 @@ public class GenderController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<Gender> delete(@PathVariable Gender gender){
+    public ResponseEntity<Gender> delete(@PathVariable String gender){
         log.info("Delete request: {}",gender);
 
         this.genderService.delete(gender);

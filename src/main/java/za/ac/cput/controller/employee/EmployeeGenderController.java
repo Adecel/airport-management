@@ -53,7 +53,7 @@ public class EmployeeGenderController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<EmployeeGender> delete(@PathVariable EmployeeGender empGender){
+    public ResponseEntity<EmployeeGender> delete(@PathVariable String empGender){
         log.info("Delete request: {}",empGender);
 
         this.empGenderService.delete(empGender);

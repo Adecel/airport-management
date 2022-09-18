@@ -53,7 +53,7 @@ public class PassengerGenderController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<PassengerGender> delete(@PathVariable PassengerGender passGender){
+    public ResponseEntity<PassengerGender> delete(@PathVariable String passGender){
         log.info("Delete request: {}",passGender);
 
         this.passengerGenderService.delete(passGender);
