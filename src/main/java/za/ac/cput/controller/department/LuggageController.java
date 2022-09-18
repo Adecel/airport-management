@@ -7,8 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.domain.entity.Luggage;
-import za.ac.cput.service.LuggageService;
+import za.ac.cput.domain.department.Luggage;
+import za.ac.cput.service.departement.LuggageService;
+
 
 import javax.validation.Valid;
 import java.util.List;
@@ -21,7 +22,7 @@ public class LuggageController {
         private final LuggageService luggageService;
         @Autowired public LuggageController(LuggageService luggageService){this.luggageService =luggageService;}
     @PostMapping("save")
-    public ResponseEntity<Luggage> save(@Valid @RequestBody Luggage luggage){
+    public ResponseEntity<Luggage> save(@Valid @RequestBody Luggage luggage) throws Exception {
           log.info("save request : {}", luggage);
           Luggage save = luggageService.save(luggage);
           return ResponseEntity.ok(save);

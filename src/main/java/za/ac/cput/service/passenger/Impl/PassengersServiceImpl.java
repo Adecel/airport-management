@@ -39,7 +39,7 @@ public class PassengersServiceImpl implements PassengersService {
     }
 
     @Override
-    public void delete(Passengers passengers) {
+    public void delete(String passengers) {
         this.repository.delete(passengers);
     }
 

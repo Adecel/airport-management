@@ -7,8 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.domain.entity.RunWay;
-import za.ac.cput.service.RunWayService;
+import za.ac.cput.domain.lookup.RunWay;
+import za.ac.cput.service.lookup.RunWayService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -21,7 +21,7 @@ public class RunwayController {
     private final RunWayService runWayService;
     @Autowired public RunwayController(RunWayService runWayService){this.runWayService = runWayService;}
     @PostMapping("save")
-    public ResponseEntity<RunWay> save(@Valid @RequestBody RunWay runWay){
+    public ResponseEntity<RunWay> save(@Valid @RequestBody RunWay runWay) throws Exception {
         log.info("save request : {}", runWay);
         RunWay save = runWayService.save(runWay);
         return ResponseEntity.ok(save);

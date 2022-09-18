@@ -33,7 +33,7 @@ public class EmployeeContactServiceImpl implements EmployeeContactService {
     }
 
     @Override
-    public void delete(EmployeeContact employeeContact) {
+    public void delete(String employeeContact) {
         this.repository.delete(employeeContact);
 
     }

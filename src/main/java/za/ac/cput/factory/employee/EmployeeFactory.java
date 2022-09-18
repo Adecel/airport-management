@@ -11,22 +11,12 @@ import za.ac.cput.util.Helper;
 
 public class EmployeeFactory {
 
-    public static Employee build(String employeeID, String employeeName, String depID, String depName){
+    public static Employee build(String employeeName, String depID, String depName){
 
-        // String employeeID = Helper.generateID();
-
-        if (employeeID == null || employeeID.isEmpty()){
-            throw new IllegalArgumentException("employee id is required!");
-        }
-        if (employeeName == null || employeeName.isEmpty()){
-            throw new IllegalArgumentException("employee Name is required!");
-        }
-        if (depID == null || depID.isEmpty()){
-            throw new IllegalArgumentException("dep id is required!");
-        }
-        if (depName == null || depName.isEmpty()){
-            throw new IllegalArgumentException("dep Name is required!");
-        }
+        String employeeID = Helper.generateID();
+        Helper.checkStringParam("employeeName", employeeName);
+        Helper.checkStringParam("depID", depID);
+        Helper.checkStringParam("depName", depName);
         return new Employee.Builder().EmployeeID(employeeID).EmployeeName(employeeName)
                 .DepID(depID).DepName(depName).build();
     }

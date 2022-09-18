@@ -13,4 +13,5 @@ import java.util.List;
 
 public interface AirportManagementService extends IService<AirportManagement, String> {
     List<AirportManagement> findByAirportName(String airportName);
+    List<AirportManagement> findAll();
 }

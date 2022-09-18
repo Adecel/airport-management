@@ -17,17 +17,13 @@ import java.util.Objects;
 public class Employee {
 
     @Id
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
     private String employeeID;
-    @NotNull
     private String employeeName;
-//    @ForeignKey
-//    @ManyToOne
-//    @JoinColumn()
-    @NotNull
-    private String depID;
-    @NotNull
     private String depName;
+    //    @Column(nullable = false, updatable = false)
+    private String depID;
 
     //private construction
     protected Employee() {

@@ -36,7 +36,7 @@ public class FlightServiceImpl implements FlightService {
     }
 
     @Override
-    public void delete(Flight flight) {
+    public void delete(String flight) {
         this.repository.delete(flight);
     }
 

@@ -12,5 +12,5 @@ import za.ac.cput.domain.department.Department;
 
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, String> {
-
+    void delete(String department);
 }

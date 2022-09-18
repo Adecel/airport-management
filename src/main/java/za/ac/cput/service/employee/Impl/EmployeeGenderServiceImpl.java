@@ -9,7 +9,6 @@ import za.ac.cput.domain.lookup.Gender;
 import za.ac.cput.repository.employee.EmployeeGenderRepository;
 import za.ac.cput.service.employee.EmployeeGenderService;
 
-import java.util.List;
 import java.util.Optional;
 @Service
 @RequiredArgsConstructor
@@ -27,7 +26,7 @@ public class EmployeeGenderServiceImpl implements EmployeeGenderService{
     }
 
     @Override
-    public void delete(EmployeeGender employeeGender) {
+    public void delete(String employeeGender) {
        this.repository.delete(employeeGender);
     }
 

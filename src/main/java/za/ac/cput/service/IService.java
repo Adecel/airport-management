@@ -9,7 +9,7 @@ package za.ac.cput.service;
 import java.util.Optional;
 
 public interface IService <A, ID>{
-    A save(A a) throws Exception;
+    A save(A a);
     Optional<A> read(ID id);
-    void delete(A a);
+    void delete(String a);
 }

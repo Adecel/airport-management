@@ -35,7 +35,7 @@ public class PassengerContactServiceImpl implements PassengerContactService {
     }
 
     @Override
-    public void delete(PassengerContact passengerContact) {
+    public void delete(String passengerContact) {
         this.repository.delete(passengerContact);
 
     }
