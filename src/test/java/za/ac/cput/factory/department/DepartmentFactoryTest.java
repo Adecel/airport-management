@@ -14,24 +14,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DepartmentFactoryTest {
 
-    @Test
-    public void testWithSuccess() {
-        Department department = DepartmentFactory.build("234890",
-                "trolls Department",
-                "transport of lagage");
-        System.out.println(department);
-        assertNotNull(department);
-    }
-
-    @Test
-    public void testWithError(){
-        Exception exception = assertThrows(IllegalArgumentException.class, ()->
-                DepartmentFactory.build(null,
-                        "trolls Department",
-                        "transport of lagage"));
-        System.out.println(exception.getMessage());
-        assertFalse(exception.getMessage().contains("depID"));
-    }
+//    @Test
+//    public void testWithSuccess() {
+//        Department department = DepartmentFactory.build("234890",
+//                "trolls Department",
+//                "transport of lagage");
+//        System.out.println(department);
+//        assertNotNull(department);
+//    }
+//
+//    @Test
+//    public void testWithError(){
+//        Exception exception = assertThrows(IllegalArgumentException.class, ()->
+//                DepartmentFactory.build(null,
+//                        "trolls Department",
+//                        "transport of lagage"));
+//        System.out.println(exception.getMessage());
+//        assertFalse(exception.getMessage().contains("depID"));
+//    }
 
 //    @Test
 //    public void testWithErrors(){

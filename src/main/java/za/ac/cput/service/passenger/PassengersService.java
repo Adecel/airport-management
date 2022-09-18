@@ -2,6 +2,7 @@ package za.ac.cput.service.passenger;
 
 import org.springframework.data.repository.query.Param;
 ;
+import za.ac.cput.domain.lookup.Gender;
 import za.ac.cput.domain.passenger.Passengers;
 import za.ac.cput.service.IService;
 

@@ -1,14 +1,11 @@
 server:
   error:
-    include-stacktrace: never
-
+    include-stacktrace: always
 Spring:
   jpa:
     hibernate:
       ddl-auto: create
     show-sql: true
   datasource:
-    #Don't use this yet
-   url: jdbc:mysql://localhost:3306/schoolManagement-db?createDatabaseIfNotExist=true
-#    username: root
-#    password:password
+  url: jdbc:mysql://localhost:3306/schoolManagement-db?createDatabaseIfNotExist=true
+    username: root
