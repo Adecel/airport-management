@@ -5,9 +5,11 @@ package za.ac.cput.service.employee.Impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.employee.EmployeeGender;
+import za.ac.cput.domain.lookup.Gender;
 import za.ac.cput.repository.employee.EmployeeGenderRepository;
 import za.ac.cput.service.employee.EmployeeGenderService;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 @RequiredArgsConstructor
@@ -26,6 +28,10 @@ public class EmployeeGenderServiceImpl implements EmployeeGenderService{
 
     @Override
     public void delete(String employeeGender) {
-       this.repository.delete(employeeGender);
+       this.repository.deleteById(employeeGender);
+    }
+
+    public List<EmployeeGender> readAll() {
+        return repository.findAll();
     }
 }

@@ -37,31 +37,25 @@ public class GenderController {
     @GetMapping("/read/{genId}")
     public ResponseEntity<Optional<Gender>> read(@PathVariable String genId){
         log.info("Read request: {}",genId);
-
-        try{
-            Optional<Gender> readGender = genderService.read(genId);
+            Optional<Gender> readGender = Optional.ofNullable(genderService.read(genId).orElseThrow(()
+                    -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
             return ResponseEntity.ok(readGender);
 
-        }catch(IllegalArgumentException e){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
-        }
+
     }
 
     @PostMapping("/save")
     public ResponseEntity<Gender> save(@Valid @RequestBody Gender saveGender){
         log.info("Save request: {}",saveGender);
 
-        try{
+
             Gender genderTemp = genderService.save(saveGender);
             return ResponseEntity.ok(genderTemp);
 
-        }catch(IllegalArgumentException e){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
-        }
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<Gender> delete(@PathVariable Gender gender){
+    public ResponseEntity<Gender> delete(@PathVariable String gender){
         log.info("Delete request: {}",gender);
 
         this.genderService.delete(gender);

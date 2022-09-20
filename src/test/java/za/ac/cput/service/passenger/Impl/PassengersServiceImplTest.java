@@ -2,7 +2,7 @@ package za.ac.cput.service.passenger.Impl;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
- org.junit.jupiter.api.TestMethodOrder;
+
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -7,8 +7,9 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.domain.entity.Luggage;
-import za.ac.cput.factory.LuggageFactory;
+import za.ac.cput.domain.department.Luggage;
+import za.ac.cput.factory.department.LuggageFactory;
+
 
 import java.util.Arrays;
 
