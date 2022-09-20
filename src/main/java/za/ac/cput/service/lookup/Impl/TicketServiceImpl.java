@@ -6,6 +6,7 @@ import za.ac.cput.domain.lookup.Ticket;
 import za.ac.cput.repository.lookup.TicketRepository;
 import za.ac.cput.service.lookup.TicketService;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 public class TicketServiceImpl implements TicketService {
@@ -36,7 +37,8 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public Ticket FindByTicketID(String ticketID) {return this.repository.findByTicketID(ticketID);}
 
-
+    @Override
+    public List<Ticket> finAll() {return this.repository.findAll();}
 }
 
 
