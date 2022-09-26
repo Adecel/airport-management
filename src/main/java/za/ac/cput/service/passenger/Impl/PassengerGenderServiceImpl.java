@@ -4,10 +4,12 @@ package za.ac.cput.service.passenger.Impl;
         */
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.lookup.Gender;
 import za.ac.cput.domain.passenger.PassengerGender;
 import za.ac.cput.repository.passenger.PassengerGenderRepository;
 import za.ac.cput.service.passenger.PassengerGenderService;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,5 +34,9 @@ public class PassengerGenderServiceImpl implements PassengerGenderService{
     {
         this.repository.delete(passengerGender);
 
+    }
+
+    public List<PassengerGender> readAll() {
+        return repository.findAll();
     }
 }

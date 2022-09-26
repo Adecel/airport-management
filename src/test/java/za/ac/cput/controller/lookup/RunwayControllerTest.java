@@ -7,8 +7,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.domain.entity.RunWay;
-import za.ac.cput.factory.RunwayFactory;
+import za.ac.cput.domain.lookup.RunWay;
+import za.ac.cput.factory.lookup.RunwayFactory;
 
 import java.util.Arrays;
 
