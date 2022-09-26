@@ -12,33 +12,48 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class TicketServiceImplTest {
+
     @Autowired
     private TicketServiceImpl ticketService;
-    private static Ticket ticket1 = TicketFactory.createTicket("CAPE TOWN");
 
     @Test
     void save() {
-        Ticket ticket = ticketService.save(ticket1);
-        assertNotNull(ticket);
-        System.out.println(ticket);
+        Ticket ticket = TicketFactory.createTicket("Cape Town");
+        Ticket savedTicket = ticketService.save(ticket);
+        assertEquals(ticket.getTicketID(), savedTicket.getTicketID());
     }
 
     @Test
     void read() {
-        Optional<Ticket> read = ticketService.read("CAPE TOWN");
-        assertNotNull(read);
-        System.out.println(read);
+        Ticket ticket = TicketFactory.createTicket("Cape Town");
+        Ticket savedTicket = ticketService.save(ticket);
+        Optional<Ticket> readTicket = ticketService.read(savedTicket.getTicketID());
+        assertEquals(ticket.getTicketID(), readTicket.get().getTicketID());
     }
 
     @Test
     void delete() {
-        ticketService.delete(ticket1);
+        Ticket ticket = TicketFactory.createTicket("Cape Town");
+        Ticket savedTicket = ticketService.save(ticket);
+        ticketService.delete(savedTicket.getTicketID());
+        Optional<Ticket> readTicket = ticketService.read(savedTicket.getTicketID());
+        assertFalse(readTicket.isPresent());
     }
 
     @Test
     void findByTicketID() {
-        Ticket ticket = ticketService.FindByTicketID("CAPE TOWN");
-        assertNotNull(ticket);
-        System.out.println(ticket);
+        Ticket ticket = TicketFactory.createTicket("Cape Town");
+        Ticket savedTicket = ticketService.save(ticket);
+        Ticket readTicket = ticketService.findByTicketID(savedTicket.getTicketID());
+        assertEquals(ticket.getTicketID(), readTicket.getTicketID());
+    }
+
+    @Test
+    void findAll() {
+        Ticket ticket = TicketFactory.createTicket("Cape Town");
+        Ticket savedTicket = ticketService.save(ticket);
+        Ticket ticket2 = TicketFactory.createTicket("Cape Town");
+        Ticket savedTicket2 = ticketService.save(ticket2);
+        assertEquals(ticketService.findAll().size(), 2);
     }
 }

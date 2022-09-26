@@ -6,8 +6,8 @@ import za.ac.cput.service.IService;
 import java.util.List;
 
 public interface TicketService extends IService<Ticket, String> {
-    public Ticket FindByTicketID(String ticketID);
-    List<Ticket> finAll();
-//    boolean delete(String ticketID);
+    List<Ticket> findAll();
+    Ticket findByTicketID(String ticketID);
+    void deleteById(String ticketID);
 }
 
