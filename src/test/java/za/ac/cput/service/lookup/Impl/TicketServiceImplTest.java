@@ -1,6 +1,9 @@
 package za.ac.cput.service.lookup.Impl;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.stereotype.Service;
@@ -11,12 +14,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TicketServiceImplTest {
 
     @Autowired
     private TicketServiceImpl ticketService;
 
     @Test
+    @Order(1)
     void save() {
         Ticket ticket = TicketFactory.createTicket("Cape Town");
         Ticket savedTicket = ticketService.save(ticket);
@@ -24,14 +29,14 @@ class TicketServiceImplTest {
     }
 
     @Test
+    @Order(2)
     void read() {
-        Ticket ticket = TicketFactory.createTicket("Cape Town");
-        Ticket savedTicket = ticketService.save(ticket);
-        Optional<Ticket> readTicket = ticketService.read(savedTicket.getTicketID());
-        assertEquals(ticket.getTicketID(), readTicket.get().getTicketID());
+        Optional<Ticket> ticket = ticketService.read("Cape Town");
+        assertFalse(ticket.isPresent());
     }
 
     @Test
+    @Order(3)
     void delete() {
         Ticket ticket = TicketFactory.createTicket("Cape Town");
         Ticket savedTicket = ticketService.save(ticket);
@@ -41,6 +46,7 @@ class TicketServiceImplTest {
     }
 
     @Test
+    @Order(4)
     void findByTicketID() {
         Ticket ticket = TicketFactory.createTicket("Cape Town");
         Ticket savedTicket = ticketService.save(ticket);
@@ -49,11 +55,12 @@ class TicketServiceImplTest {
     }
 
     @Test
+    @Order(5)
     void findAll() {
         Ticket ticket = TicketFactory.createTicket("Cape Town");
         Ticket savedTicket = ticketService.save(ticket);
         Ticket ticket2 = TicketFactory.createTicket("Cape Town");
         Ticket savedTicket2 = ticketService.save(ticket2);
-        assertEquals(ticketService.findAll().size(), 2);
+        assertEquals(2, ticketService.findAll().size());
     }
 }
