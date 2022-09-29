@@ -77,7 +77,7 @@ class TicketControllerTest {
     }
 
     @Test
-    void findtAll() {
+    void findAll() {
         String url = baseURL + "/all";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         System.out.println(response);

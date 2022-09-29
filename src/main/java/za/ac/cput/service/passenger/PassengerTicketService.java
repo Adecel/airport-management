@@ -6,7 +6,7 @@ import za.ac.cput.service.IService;
 import java.util.List;
 
 public interface PassengerTicketService  extends IService<PassengerTicket, String> {
-    PassengerTicket FindByTicketID(String ticketID);
     List<PassengerTicket> findAll();
-//    boolean delete(String ticketID);
+    PassengerTicket findByPassengerID(String passengerID);
+    void deleteById(String passengerID);
 }

@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.passenger.PassengerTicket;
 @Repository
 public interface PassengerTicketRepository extends JpaRepository<PassengerTicket, String> {
-    public PassengerTicket findByTicketID(String ticketID);
+    public PassengerTicket findByPassengerID(String passengerID);
 }
 

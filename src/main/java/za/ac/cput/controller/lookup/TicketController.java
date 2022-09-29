@@ -54,7 +54,7 @@ public class TicketController {
         this.ticketService.deleteById(ticketID);
         return ResponseEntity.ok().build();
     }
-    @DeleteMapping("/deletebyID/{ticketID}")
+    @DeleteMapping("/deleteByID/{ticketID}")
     public ResponseEntity deleteByID(@PathVariable String ticketID) {
         log.info("Request to delete a ticket: {}", ticketID);
         this.ticketService.deleteById(ticketID);
@@ -62,7 +62,7 @@ public class TicketController {
     }
 
     @GetMapping("/getall")
-    public ResponseEntity<List<Ticket>> findtAll() {
+    public ResponseEntity<List<Ticket>> findAll() {
         log.info("Request to get all tickets");
         List<Ticket> tickets = ticketService.findAll();
         return ResponseEntity.ok(tickets);

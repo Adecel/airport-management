@@ -59,8 +59,13 @@ class TicketServiceImplTest {
     void findAll() {
         Ticket ticket = TicketFactory.createTicket("Cape Town");
         Ticket savedTicket = ticketService.save(ticket);
-        Ticket ticket2 = TicketFactory.createTicket("Cape Town");
+        Ticket ticket2 = TicketFactory.createTicket("Johannesburg");
         Ticket savedTicket2 = ticketService.save(ticket2);
-        assertEquals(2, ticketService.findAll().size());
+        Ticket ticket3 = TicketFactory.createTicket("Pretoria");
+        Ticket savedTicket3 = ticketService.save(ticket3);
+        Ticket ticket4 = TicketFactory.createTicket("Durban");
+        Ticket savedTicket4 = ticketService.save(ticket4);
+        Ticket ticket5 = TicketFactory.createTicket("Bloemfontein");
+        assertNotEquals(ticket5.getTicketID(), savedTicket4.getTicketID());
     }
 }

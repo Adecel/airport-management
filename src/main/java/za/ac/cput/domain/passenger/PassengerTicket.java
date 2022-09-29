@@ -1,12 +1,16 @@
 package za.ac.cput.domain.passenger;
 //Dieuci Djate Nsibu 220169136
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 import java.io.Serializable;
 
-
+@Entity
 public class PassengerTicket implements Serializable {
+    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "passenger_id")
+    private Long passenger_id;
+
     @JoinColumn(name = "passenger_id",referencedColumnName = "passenger_id")
     private String passengerID;
     @JoinColumn(name = "ticket_id",referencedColumnName = "ticket_id")
@@ -14,6 +18,14 @@ public class PassengerTicket implements Serializable {
     private int price;
     @JoinColumn(name = "luggage_id",referencedColumnName = "luggage_id")
     private String luggageID;
+
+    public Long getPassenger_id() {
+        return passenger_id;
+    }
+
+    public void setPassenger_id(Long passenger_id) {
+        this.passenger_id = passenger_id;
+    }
 
     protected PassengerTicket(){}
 
