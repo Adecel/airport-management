@@ -1,6 +1,7 @@
 server:
+  port: 8080
   error:
-    include-stacktrace: never
+    include-stacktrace: always
 
 Spring:
   jpa:
@@ -8,17 +9,6 @@ Spring:
       ddl-auto: create
     show-sql: true
   datasource:
-    #Don't use this yet
-#    url: jdbc:mysql://localhost:3307/schoolManagement-db?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/airport_ms_db?createDatabaseIfNotExist=true
     username: root
     password:
-
-
-
-      # MySQL Configuration
-#      spring.datasource.url=jdbc:mysql://localhost:3306/employeemanagercopyandme
-#      spring.datasource.username=root
-#      spring.datasource.password=Mabi@2021
-#      spring.jpa.show-sql=true
-#      spring.jpa.hibernate.ddl-auto=update
-#      spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect

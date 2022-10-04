@@ -1,22 +1,24 @@
 package za.ac.cput.factory.department;
 
-//216266882 Mogamad Tawfeeq Cupido
-//2022/08/07
 
 import za.ac.cput.domain.department.Flight;
 import za.ac.cput.util.Helper;
 
-
 public class FlightFactory {
-    public static Flight flight(String flightID, String capacity, String departureTime, String arrivalTime)
 
-    {
-        Helper.checkStringParam("flightID", flightID);
-        Helper.checkStringParam("capacity", capacity);
-        Helper.checkStringParam("departureTime", departureTime);
-        Helper.checkStringParam("arrivalTime", arrivalTime);
+    public static Flight build(String id, String departureDateAndTime, String arrivalDateAndTime,
+                               String planeId, String description, String departureLocation) {
 
+        Helper.checkStringParam("FlightId", id);
+        Helper.checkStringParam("departureDateAndTime", departureDateAndTime);
+        Helper.checkStringParam("arrivalDateAndTime", arrivalDateAndTime);
+        Helper.checkStringParam("planeId", planeId);
+        Helper.checkStringParam("description", description);
+        Helper.checkStringParam("departureLocation", departureLocation);
 
-        return new Flight.Builder().setFlightID(flightID).setCapacity(capacity).setDepartureTime(departureTime).setArrivalTime(arrivalTime).build();
+        return Flight.builder().id(id).departureDateAndTime(departureDateAndTime)
+                .arrivalDateAndTime(arrivalDateAndTime).planeId(planeId)
+                .description(description).departureLocation(departureLocation)
+                .build();
     }
 }

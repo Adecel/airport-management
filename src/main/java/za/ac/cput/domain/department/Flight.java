@@ -1,116 +1,49 @@
 package za.ac.cput.domain.department;
 
-//Mogamad Tawfeeq Cupido-
-//216266882
-//21 August 2022
+import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@Getter
+@ToString
 @Entity
-@Table(name = "Flight")
 public class Flight {
 
-    @NotNull @Id
-    private String flightID;
+    @Id
     @NotNull
-    private String capacity;
+    private String id;
+
     @NotNull
-    private String departureTime;
+    private String departureDateAndTime;
+
     @NotNull
-    private String arrivalTime;
+    private String arrivalDateAndTime;
 
-    private Flight(){}
+    @NotNull
+    private String planeId; //(same question)do I have to write it like this or the way this primaryKey is written in class it coming from
 
-    private Flight(Builder builder) {
-        this.flightID = builder.flightID;
-        this.capacity = builder.capacity;
-        this.departureTime = builder.departureTime;
-        this.arrivalTime =builder. arrivalTime;
-    }
+    @NotNull
+    private String description;
 
-    public void flightDetails(){};
+    @NotNull
+    private String departureLocation;
 
-    public String getFlightID() {
-        return flightID;
-    }
-
-    public boolean equals(Object o){
+    @Override
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Flight flight= (Flight) o;
-
-        return flightID.equals(flight.getFlightID());
-    }
-
-    public String getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(String capacity) {
-        this.capacity = capacity;
-    }
-
-    public String getDepartureTime() {
-        return departureTime;
-    }
-
-    public void setDepartureTime(String departureTime) {
-        this.departureTime = departureTime;
-    }
-
-    public String getArrivalTime() {
-        return arrivalTime;
-    }
-
-    public void setArrivalTime(String arrivalTime) {
-        this.arrivalTime = arrivalTime;
+        if (!(o instanceof Flight)) return false;
+        Flight flight = (Flight) o;
+        return Objects.equals(getId(), flight.getId()) && Objects.equals(getDepartureDateAndTime(), flight.getDepartureDateAndTime()) && Objects.equals(getArrivalDateAndTime(), flight.getArrivalDateAndTime()) && Objects.equals(getPlaneId(), flight.getPlaneId()) && Objects.equals(getDescription(), flight.getDescription()) && Objects.equals(getDepartureLocation(), flight.getDepartureLocation());
     }
 
     @Override
-    public String toString() {
-        return "Flight{" +
-                "flightID='" + flightID + '\'' +
-                ", capacity='" + capacity + '\'' +
-                ", departureTime='" + departureTime + '\'' +
-                ", arrivalTime='" + arrivalTime + '\'' +
-                '}';
-    }
-    public static class Builder{
-        private String flightID;
-        private String capacity;
-        private String departureTime;
-        private String arrivalTime;
-
-        public Builder setFlightID(String flightID) {
-            this.flightID = flightID;
-            return this;
-        }
-
-        public Builder setCapacity(String capacity) {
-            this.capacity = capacity;
-            return this;
-        }
-
-        public Builder setDepartureTime(String departureTime) {
-            this.departureTime = departureTime;
-            return this;
-        }
-
-        public Builder setArrivalTime(String arrivalTime) {
-            this.arrivalTime = arrivalTime;
-            return this;
-        }
-        public Builder copy(Flight flight){
-            this.flightID=flight.flightID;
-            this.capacity=flight.capacity;
-            this.departureTime=flight.departureTime;
-            this.arrivalTime=flight.arrivalTime;
-            return this;
-        }
-        public Flight build(){
-            return new Flight (this);
-        }
-
+    public int hashCode() {
+        return Objects.hash(getId(), getDepartureDateAndTime(), getArrivalDateAndTime(), getPlaneId(), getDescription(), getDepartureLocation());
     }
 }
