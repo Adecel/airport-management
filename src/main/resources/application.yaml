@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  error:
+    include-stacktrace: always
+
+Spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/base_on_dep_db?createDatabaseIfNotExist=true
+    username: root
+    password:
