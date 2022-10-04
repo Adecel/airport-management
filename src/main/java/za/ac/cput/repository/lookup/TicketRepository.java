@@ -6,5 +6,6 @@ import za.ac.cput.domain.lookup.Ticket;
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, String> {
     public Ticket findByTicketID(String ticketID);
+
 }
 

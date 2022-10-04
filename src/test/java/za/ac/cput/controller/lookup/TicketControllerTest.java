@@ -1,72 +1,89 @@
 package za.ac.cput.controller.lookup;
 
+//220169136 DIEUCI DJATE NSIBU
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.lookup.Ticket;
-import za.ac.cput.factory.department.LuggageFactory;
 import za.ac.cput.factory.lookup.TicketFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+
 class TicketControllerTest {
     @LocalServerPort
     private int port;
     @Autowired private TicketController controller;
-    Autowired private TestTemplate restTemplate;
+    @Autowired private TestRestTemplate restTemplate;
     private Ticket ticket;
-    private String baseUrl;
+    private String baseURL;
+
+
     @BeforeEach
-    void setup(){
-        this.ticket = TicketFactory.createTicket("cape town");
-        this.baseUrl = "http://localhost:" + this.port + "/Adp/ticket/";
+    void setUp() {
+        this.ticket = TicketFactory.createTicket("Cape Town");
+        this.baseURL = "http://localhost:" + port + "/ticket";
     }
+
     @Test
     void save() {
-        String url = baseUrl + "save";
-        ResponseEntity<Ticket> response = this.restTemplate.postForEntity(url, this.ticket, Ticket.class);
-        System.out.println(response);
+        String url = baseURL + "/save";
+        ResponseEntity<Ticket> postResponse = restTemplate.postForEntity(url, ticket, Ticket.class);
+        System.out.println(postResponse);
         assertAll(
-                ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                ()-> assertNotNull(response.getBody())
+                () -> assertNotNull(postResponse),
+                () -> assertNotNull(postResponse.getBody())
         );
-        
     }
 
     @Test
     void read() {
-        String url = baseUrl + "read/" + this.ticket.getDestination();
-        System.out.println(url);
-        ResponseEntity<Ticket> response = this.restTemplate.getForEntity(url, Ticket.class);
+        String url = baseURL + "/read/" + ticket.getTicketID();
+        ResponseEntity<Ticket> response = restTemplate.getForEntity(url, Ticket.class);
         System.out.println(response);
         assertAll(
-                ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                ()-> assertNotNull(response.getBody())
+                () -> assertNotNull(response),
+                () -> assertNotNull(response.getBody())
+        );
+    }
+
+    @Test
+    void findById() {
+        String url = baseURL + "/find/" + ticket.getTicketID();
+        ResponseEntity<Ticket> response = restTemplate.getForEntity(url, Ticket.class);
+        System.out.println(response);
+        assertAll(
+                () -> assertNotNull(response),
+                () -> assertNotNull(response.getBody())
         );
     }
 
     @Test
     void delete() {
-        String url = baseUrl + "delete/" + this.ticket.getDestination();
-        System.out.println(url);
-        this.restTemplate.delete(url);
+        String url = baseURL + "/delete/" + ticket.getTicketID();
+        restTemplate.delete(url);
     }
 
     @Test
-    void getAll() {
-        String url = baseUrl + "getAll";
-        System.out.println(url);
-        ResponseEntity<String> response = this.restTemplate.getForEntity(url, String.class);
+    void deleteByID() {
+        String url = baseURL + "/delete/" + ticket.getTicketID();
+        restTemplate.delete(url);
+    }
+
+    @Test
+    void findAll() {
+        String url = baseURL + "/all";
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         System.out.println(response);
         assertAll(
-                ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                ()-> assertNotNull(response.getBody())
+                () -> assertNotNull(response),
+                () -> assertNotNull(response.getBody())
         );
     }
 }

@@ -15,33 +15,56 @@ import java.util.Optional;
 @Slf4j
 @RequestMapping(value = "/ticket")
 public class TicketController {
-    private  TicketService ticketService;
+    private final TicketService ticketService;
 
-    @Autowired
-    public TicketController(TicketServiceImpl ticketService) {
-        this.ticketService = ticketService;}
+    public TicketController(TicketServiceImpl ticketService) {this.ticketService = ticketService;}
 
     @PostMapping("/save")
-    public ResponseEntity<Ticket> save(@RequestBody Ticket ticket) throws Exception {
-        log.info("Save request: {}", ticket);
-        Ticket save = ticketService.save(ticket);
-        return ResponseEntity.ok(save);
+    public ResponseEntity<Ticket> save(@RequestBody Ticket ticket) {
+        log.info("Request to create a ticket: {}", ticket);
+        Ticket newTicket = ticketService.save(ticket);
+        return ResponseEntity.ok(newTicket);
     }
-    @GetMapping("/read/{id}")
-    public ResponseEntity<Ticket> read(@PathVariable String id)  {
-        log.info("Read request: {}", id);
-        Optional<Ticket> ticket = this.ticketService.read(id);
-        return ResponseEntity.ok(ticket.get());
-    }    @DeleteMapping("/delete/{id}")
-    public ResponseEntity <Void> delete(@PathVariable Ticket ticketID) {
-        log.info("Delete request: {}", ticketID);
-        this.ticketService.delete(ticketID);
-        return ResponseEntity.noContent().build();
+
+
+    @GetMapping("/read/{ticketID}")
+    public ResponseEntity<Ticket> read(@PathVariable String ticketID) {
+        log.info("Request to read a ticket: {}", ticketID);
+        Ticket ticket = ticketService.findByTicketID(ticketID);
+        return ResponseEntity.ok(ticket);
     }
-    @GetMapping("/read/all")
-    public ResponseEntity<List<Ticket>> getAll() {
-        log.info("Get all request");
-        List<Ticket> tickets = this.ticketService.finAll();
+
+    @GetMapping("/find/{ticketID}")
+    public ResponseEntity<Ticket> findById(@PathVariable String ticketID) {
+        log.info("Request to find a ticket: {}", ticketID);
+        Ticket ticket = ticketService.findByTicketID(ticketID);
+        return ResponseEntity.ok(ticket);
+    }
+
+    //    @PutMapping("/update")
+//    public ResponseEntity<Ticket> update(@RequestBody Ticket ticket) {
+//        log.info("Request to update a ticket: {}", ticket);
+//        Ticket updatedTicket = ticketService.save(ticket);
+//        return ResponseEntity.ok(updatedTicket);
+//    }
+//
+    @DeleteMapping("/delete/{ticketID}")
+    public ResponseEntity delete(@PathVariable String ticketID) {
+        log.info("Request to delete a ticket: {}", ticketID);
+        this.ticketService.deleteById(ticketID);
+        return ResponseEntity.ok().build();
+    }
+    @DeleteMapping("/deleteByID/{ticketID}")
+    public ResponseEntity deleteByID(@PathVariable String ticketID) {
+        log.info("Request to delete a ticket: {}", ticketID);
+        this.ticketService.deleteById(ticketID);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/getall")
+    public ResponseEntity<List<Ticket>> findAll() {
+        log.info("Request to get all tickets");
+        List<Ticket> tickets = ticketService.findAll();
         return ResponseEntity.ok(tickets);
     }
 }

@@ -1,6 +1,9 @@
 package za.ac.cput.service.lookup.Impl;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.stereotype.Service;
@@ -11,34 +14,58 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TicketServiceImplTest {
+
     @Autowired
     private TicketServiceImpl ticketService;
-    private static Ticket ticket1 = TicketFactory.createTicket("CAPE TOWN");
 
     @Test
+    @Order(1)
     void save() {
-        Ticket ticket = ticketService.save(ticket1);
-        assertNotNull(ticket);
-        System.out.println(ticket);
+        Ticket ticket = TicketFactory.createTicket("Cape Town");
+        Ticket savedTicket = ticketService.save(ticket);
+        assertEquals(ticket.getTicketID(), savedTicket.getTicketID());
     }
 
     @Test
+    @Order(2)
     void read() {
-        Optional<Ticket> read = ticketService.read("CAPE TOWN");
-        assertNotNull(read);
-        System.out.println(read);
+        Optional<Ticket> ticket = ticketService.read("Cape Town");
+        assertFalse(ticket.isPresent());
     }
 
     @Test
+    @Order(3)
     void delete() {
-        ticketService.delete(ticket1);
+        Ticket ticket = TicketFactory.createTicket("Cape Town");
+        Ticket savedTicket = ticketService.save(ticket);
+        ticketService.delete(savedTicket.getTicketID());
+        Optional<Ticket> readTicket = ticketService.read(savedTicket.getTicketID());
+        assertFalse(readTicket.isPresent());
     }
 
     @Test
+    @Order(4)
     void findByTicketID() {
-        Ticket ticket = ticketService.FindByTicketID("CAPE TOWN");
-        assertNotNull(ticket);
-        System.out.println(ticket);
+        Ticket ticket = TicketFactory.createTicket("Cape Town");
+        Ticket savedTicket = ticketService.save(ticket);
+        Ticket readTicket = ticketService.findByTicketID(savedTicket.getTicketID());
+        assertEquals(ticket.getTicketID(), readTicket.getTicketID());
+    }
+
+    @Test
+    @Order(5)
+    void findAll() {
+        Ticket ticket = TicketFactory.createTicket("Cape Town");
+        Ticket savedTicket = ticketService.save(ticket);
+        Ticket ticket2 = TicketFactory.createTicket("Johannesburg");
+        Ticket savedTicket2 = ticketService.save(ticket2);
+        Ticket ticket3 = TicketFactory.createTicket("Pretoria");
+        Ticket savedTicket3 = ticketService.save(ticket3);
+        Ticket ticket4 = TicketFactory.createTicket("Durban");
+        Ticket savedTicket4 = ticketService.save(ticket4);
+        Ticket ticket5 = TicketFactory.createTicket("Bloemfontein");
+        assertNotEquals(ticket5.getTicketID(), savedTicket4.getTicketID());
     }
 }

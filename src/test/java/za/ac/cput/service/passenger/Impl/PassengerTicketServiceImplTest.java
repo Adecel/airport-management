@@ -1,47 +1,76 @@
 package za.ac.cput.service.passenger.Impl;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.passenger.PassengerTicket;
 import za.ac.cput.factory.passenger.PassengerTicketFactory;
+import za.ac.cput.service.passenger.PassengerTicketService;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
+
 @SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class PassengerTicketServiceImplTest {
     @Autowired
     private PassengerTicketServiceImpl service;
-    private static PassengerTicket passengerTicket1 = PassengerTicketFactory.createPassengerTicket( 100);
 
     @Test
+    @Order(1)
     void save() {
-        System.out.println("Create:"+passengerTicket1);
-        PassengerTicket created = service.save(passengerTicket1);
-        assertNotNull(created);
-        System.out.println("Created:"+created);
+        PassengerTicket passengerTicket = PassengerTicketFactory.createPassengerTicket(100);
+        PassengerTicket savedPassengerTicket = service.save(passengerTicket);
+        assertEquals(passengerTicket.getPassengerID(), savedPassengerTicket.getPassengerID());
     }
 
     @Test
+    @Order(2)
     void read() {
-        Optional<PassengerTicket> read = service.read(passengerTicket1.getTicketID());
-        assertEquals(passengerTicket1, read.get());
-        System.out.println("Read:"+read);
+        Optional<PassengerTicket> passengerTicket = service.read("100");
+        assertFalse(passengerTicket.isPresent());
     }
 
     @Test
+    @Order(3)
     void delete() {
-        Optional<PassengerTicket> read = service.read(passengerTicket1.getTicketID());
-        service.delete(read.get());
-        Optional<PassengerTicket> deleted = service.read(passengerTicket1.getTicketID());
-        assertNull(deleted);
-        System.out.println("Deleted:"+deleted);
+        PassengerTicket passengerTicket = PassengerTicketFactory.createPassengerTicket(100);
+        PassengerTicket savedPassengerTicket = service.save(passengerTicket);
+        service.delete(savedPassengerTicket.getPassengerID());
+        Optional<PassengerTicket> readPassengerTicket = service.read(savedPassengerTicket.getPassengerID());
+        assertFalse(readPassengerTicket.isPresent());
     }
 
+
     @Test
-    void findByTicketID() {
-        PassengerTicket found = service.FindByTicketID(passengerTicket1.getTicketID());
-        assertEquals(found.getTicketID(), passengerTicket1.getTicketID());
-        System.out.println("Found:"+found);
+    @Order(4)
+    void findByPassengerID() {
+        PassengerTicket passengerTicket = PassengerTicketFactory.createPassengerTicket(100);
+        PassengerTicket savedPassengerTicket = service.save(passengerTicket);
+        PassengerTicket readPassengerTicket = service.findByPassengerID(savedPassengerTicket.getPassengerID());
+        assertEquals(passengerTicket.getPassengerID(), readPassengerTicket.getPassengerID());
+    }
+
+    //    @Test
+//    @Order(5)
+//    void deleteById() {
+//        PassengerTicket passengerTicket = PassengerTicketFactory.createPassengerTicket(100);
+//        PassengerTicket savedPassengerTicket = service.save(passengerTicket);
+//        service.deleteById(savedPassengerTicket.getPassengerID());
+//        Optional<PassengerTicket> readPassengerTicket = service.read(savedPassengerTicket.getPassengerID());
+//        assertFalse(readPassengerTicket.isPresent());
+//    }
+    @Test
+    @Order(5)
+    void findAll() {
+        PassengerTicket passengerTicket = PassengerTicketFactory.createPassengerTicket(1000);
+        PassengerTicket savedPassengerTicket = service.save(passengerTicket);
+        PassengerTicket passengerTicket2 = PassengerTicketFactory.createPassengerTicket(5000);
+        PassengerTicket savedPassengerTicket2 = service.save(passengerTicket2);
+        assertEquals(2, service.findAll().size());
+
     }
 }
