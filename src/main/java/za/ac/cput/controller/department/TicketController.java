@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.domain.department.Ticket;
 import za.ac.cput.service.department.impl.TicketServiceImpl;
 
@@ -29,8 +30,9 @@ public class TicketController {
     @GetMapping("/read/{id}")
     public ResponseEntity<Ticket> read(@PathVariable String id) {
         log.info("Request to read ticket: {}", id);
-        Optional<Ticket> ticket = ticketService.read(id);
-        return ticket.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        Optional<Ticket> ticket = Optional.ofNullable(ticketService.read(id).orElseThrow(()
+                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ticket not found")));
+        return ResponseEntity.ok(ticket.get());
     }
     @GetMapping("/findAll")
     public ResponseEntity<Iterable<Ticket>> findAll() {
