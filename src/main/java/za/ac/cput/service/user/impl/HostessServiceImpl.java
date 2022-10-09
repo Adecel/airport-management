@@ -21,14 +21,7 @@ public class HostessServiceImpl implements HostessService {
 
     @Override
     public Hostess save(Hostess hostess) {
-        String id = hostess.getId();
-        String flightId = hostess.getFlightId();
-        String userId = hostess.getUserId();
-        String date = hostess.getDate();
-
-        Hostess saving = HostessFactory.build(id, flightId, userId, date);
-        System.out.println("saving" + saving);
-        return this.repository.save(saving);
+        return this.repository.save(hostess);
     }
 
     @Override
@@ -52,5 +45,25 @@ public class HostessServiceImpl implements HostessService {
     @Override
     public List<Hostess> findAll() {
         return this.repository.findAll();
+    }
+
+    @Override
+    public List<Hostess> findAllByUserId(String userId) {
+        return this.repository.findAllByUserId(userId);
+    }
+
+    @Override
+    public List<Hostess> findAllByFlightId(String flightId) {
+        return this.repository.findAllByFlightId(flightId);
+    }
+
+    @Override
+    public List<Hostess> findAllByDate(String date) {
+        return this.repository.findAllByDate(date);
+    }
+
+    @Override
+    public List<Hostess> findAllByDateAndFlightId(String date, String flightId) {
+        return this.repository.findAllByDateAndFlightId(date, flightId);
     }
 }
