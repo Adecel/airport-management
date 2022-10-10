@@ -24,6 +24,7 @@ public class UserCategory {
     @NotNull
     private String description;
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
