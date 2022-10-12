@@ -2,8 +2,7 @@ package za.ac.cput.domain.user;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
@@ -20,13 +19,13 @@ public class Hostess {
     private String id;
 
     @NotNull
-    private String flightId; //(same question)do I have to write it like this or the way this primaryKey is written in class it coming from
+    private String flightId;
 
     @NotNull
-    private String userId; //do I have to write it like this or the way this primaryKey is written in class it coming from
+    private String userId;
 
     @NotNull
-    private String date; //here is string ok we have to use date as data type?
+    private String date;
 
     @Override
     public boolean equals(Object o) {
