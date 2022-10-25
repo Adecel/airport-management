@@ -21,14 +21,7 @@ public class FlightPilotServiceImpl implements FlightPilotService {
 
     @Override
     public FlightPilot save(FlightPilot flightPilot) {
-        String id = flightPilot.getId();
-        String flightId = flightPilot.getFlightId();
-        String userId = flightPilot.getUserId();
-        String date = flightPilot.getDate();
-
-        FlightPilot saving = FlightPilotFactory.build(id, flightId, userId, date);
-        System.out.println("saving" + saving);
-        return this.repository.save(saving);
+        return this.repository.save(flightPilot);
     }
 
     @Override
@@ -52,5 +45,25 @@ public class FlightPilotServiceImpl implements FlightPilotService {
     @Override
     public List<FlightPilot> findAll() {
         return this.repository.findAll();
+    }
+
+    @Override
+    public List<FlightPilot> findAllByUserId(String userId) {
+        return this.repository.findAllByUserId(userId);
+    }
+
+    @Override
+    public List<FlightPilot> findAllByFlightId(String flightId) {
+        return this.repository.findAllByFlightId(flightId);
+    }
+
+    @Override
+    public List<FlightPilot> findAllByDate(String date) {
+        return this.repository.findAllByDate(date);
+    }
+
+    @Override
+    public List<FlightPilot> findAllByDateAndFLightId(String date, String flightId) {
+        return this.repository.findAllByDateAndFlightId(date, flightId);
     }
 }

@@ -1,9 +1,9 @@
 package za.ac.cput.domain.user;
 
 import lombok.*;
+import za.ac.cput.domain.department.Flight;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
@@ -22,10 +22,10 @@ public class FlightPilot {
     private String flightId; //(same question)do I have to write it like this or the way this primaryKey is written in class it coming from
 
     @NotNull
-    private String userId; //do I have to write it like this or the way this primaryKey is written in class it coming from
+    private String userId;
 
     @NotNull
-    private String date; //here is string ok we have to use date as data type?
+    private String date; //here is string ok we have to use date as data type? Answer: date is a complicated attribute, hence using the datatype String is fine
 
     @Override
     public boolean equals(Object o) {
