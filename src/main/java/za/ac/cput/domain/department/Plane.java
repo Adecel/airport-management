@@ -3,6 +3,8 @@ package za.ac.cput.domain.department;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
@@ -13,10 +15,13 @@ import java.util.Objects;
 @Getter
 @ToString
 @Entity
+
 public class Plane {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
-    private String id;
+    private int id;
 
     @NotNull
     private String name;

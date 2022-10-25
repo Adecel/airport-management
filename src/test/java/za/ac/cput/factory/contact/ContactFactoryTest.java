@@ -12,9 +12,9 @@ class ContactFactoryTest {
     private Contact contact_c;
     @Test
     void build() {
-        contact_a = ContactFactory.build("01", "0813623440", "Telekom phone Number");
-        contact_b = ContactFactory.build("02", "0613623550", "MTN phone Number");
-        contact_c = ContactFactory.build("03", "0413623550", "WhatsApp Number");
+        contact_a = ContactFactory.build(1, "0813623440", "Telekom phone Number");
+        contact_b = ContactFactory.build(2, "0613623550", "MTN phone Number");
+        contact_c = ContactFactory.build(3, "0413623550", "WhatsApp Number");
 
         System.out.println(contact_a);
         System.out.println(contact_b);

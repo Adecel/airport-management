@@ -20,7 +20,7 @@ class PlaneServiceImplTest {
     @Autowired
     private PlaneServiceImpl planeService;
     private static Plane plane_a =
-            PlaneFactory.build("99Air87B5","lufthansa",
+            PlaneFactory.build(2,"lufthansa",
                     "A330 - 7.3 tonnes of cargo", "Airbus A333-300");
 
     @Test
@@ -34,7 +34,7 @@ class PlaneServiceImplTest {
     @Test
     @Order(2)
     void read() {
-        Optional<Plane> read = this.planeService.read("99Air87B5");
+        Optional<Plane> read = this.planeService.read(99);
         assertNotNull(read);
         System.out.println(read);
         assertAll(
@@ -52,7 +52,7 @@ class PlaneServiceImplTest {
     @Test
     @Order(4)
     void deleteById() {
-        this.planeService.deleteById("99Air87B5");
+        this.planeService.deleteById(3);
     }
 
     @Test

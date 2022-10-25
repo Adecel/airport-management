@@ -21,7 +21,7 @@ public class FlightLineServiceImpl implements FlightLineService {
 
     @Override
     public FlightLine save(FlightLine flightLine) {
-        String id = flightLine.getId();
+        int id = flightLine.getId();
         String description = flightLine.getDescription();
         String departure = flightLine.getDeparture();
 
@@ -31,7 +31,7 @@ public class FlightLineServiceImpl implements FlightLineService {
     }
 
     @Override
-    public Optional<FlightLine> read(String id) {
+    public Optional<FlightLine> read(Integer id) {
         return this.repository.findById(id);
     }
 
@@ -41,7 +41,7 @@ public class FlightLineServiceImpl implements FlightLineService {
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(Integer id) {
         Optional<FlightLine> flightLine = read(id);
         if (flightLine.isPresent()) {
             delete(flightLine.get());

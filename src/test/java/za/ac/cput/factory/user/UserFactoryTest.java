@@ -11,10 +11,10 @@ class UserFactoryTest {
 
     @Test
     void buildWithSuccess() {
-        User user_a = UserFactory.build("user01",
+        User user_a = UserFactory.build(11,
                 new Name("Adecel", "Rusty", "Mabiala"),
                 new Gender("M","Male"));
-        String userId = user_a.getId();
+        int userId = user_a.getId();
         assertEquals("user01", userId);
         System.out.println(user_a);
     }
@@ -22,7 +22,7 @@ class UserFactoryTest {
     @Test
     void buildWithError(){
         Exception exception = assertThrows(IllegalArgumentException.class,() ->
-                UserFactory.build(null,
+                UserFactory.build(0,
                         new Name("Adecel", "Rusty", "Mabiala"),
                         new Gender("M","Male")));
         System.out.println(exception.getMessage());

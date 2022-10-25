@@ -16,7 +16,7 @@ import java.util.Objects;
 public class UserCategory {
     @Id
     @NotNull
-    private String id;
+    private int id;
 
     @NotNull
     private String name;

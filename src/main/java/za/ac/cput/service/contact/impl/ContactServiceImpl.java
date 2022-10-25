@@ -22,7 +22,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public Contact save(Contact contact) {
-        String id = contact.getId();
+        int id = contact.getId();
         String cont = contact.getContact();
         String description = contact.getDescription();
 
@@ -32,7 +32,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Optional<Contact> read(String id) {
+    public Optional<Contact> read(Integer id) {
         return this.repository.findById(id);
     }
 
@@ -42,7 +42,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(Integer id) {
         Optional<Contact> contact = read(id);
         if (contact.isPresent()) {
             delete(contact.get());

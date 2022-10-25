@@ -6,8 +6,7 @@ import za.ac.cput.util.Helper;
 
 public class ContactFactory {
 
-    public static Contact build(String id, String contact, String description) {
-        Helper.checkStringParam("contactId", id);
+    public static Contact build(int id, String contact, String description) {
         Helper.checkStringParam("contact", contact);
         Helper.checkStringParam("description", description);
 

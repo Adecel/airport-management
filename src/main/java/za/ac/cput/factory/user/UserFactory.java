@@ -10,8 +10,7 @@ import za.ac.cput.util.Helper;
 
 public class UserFactory {
 
-    public static User build(String id, Name name, Gender gender) {
-        Helper.checkStringParam("UserId", id);
+    public static User build(int id, Name name, Gender gender) {
         name = NameFactory.build(name.getFirstName(), name.getMiddleName(), name.getLastName());
         gender = GenderFactory.build(gender.getGender(), gender.getDescription());
         return User.builder().id(id).name(name).gender(gender)

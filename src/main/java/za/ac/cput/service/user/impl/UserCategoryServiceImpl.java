@@ -22,7 +22,7 @@ public class UserCategoryServiceImpl implements UserCategoryService {
 
     @Override
     public UserCategory save(UserCategory userCategory) {
-        String id = userCategory.getId();
+        int id = userCategory.getId();
         String name = userCategory.getName();
         String description = userCategory.getDescription();
 

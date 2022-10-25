@@ -22,7 +22,7 @@ class UserServiceImplTest {
     @Autowired
     private UserServiceImpl userService;
     private static User user_a =
-            UserFactory.build("user01",
+            UserFactory.build(0,
                     new Name("Adecel", "Rusty", "Mabiala"),
                     new Gender("M","Male"));
 
@@ -37,7 +37,7 @@ class UserServiceImplTest {
     @Test
     @Order(2)
     void read() {
-        Optional<User> read = this.userService.read("user01");
+        Optional<User> read = this.userService.read(0);
         assertNotNull(read);
         System.out.println(read);
         assertAll(
@@ -56,7 +56,7 @@ class UserServiceImplTest {
     @Test
     @Order(4)
     void deleteById() {
-        this.userService.deleteById("user01");
+        this.userService.deleteById(1);
     }
 
     @Test

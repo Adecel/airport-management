@@ -6,10 +6,10 @@ import za.ac.cput.util.Helper;
 
 public class PlaneFactory {
 
-    public static Plane build(String id, String name, String capacity,
+    public static Plane build(int id, String name, String capacity,
                               String model) {
 
-        Helper.checkStringParam("PlaneId", id);
+       // Helper.checkStringParam("PlaneId", id);
         Helper.checkStringParam("name", name);
         Helper.checkStringParam("capacity", capacity);
         Helper.checkStringParam("model", model);

@@ -2,10 +2,10 @@ package za.ac.cput.domain.department;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -24,9 +24,9 @@ public class Flight {
 
     @NotNull
     private String arrivalDateAndTime;
-
-    @NotNull
-    private String planeId; //(same question)do I have to write it like this or the way this primaryKey is written in class it coming from
+    @OneToOne
+    @JoinColumn(name="plane_id")
+    private Plane plane; //(same question)do I have to write it like this or the way this primaryKey is written in class it coming from
 
     @NotNull
     private String description;
@@ -39,11 +39,11 @@ public class Flight {
         if (this == o) return true;
         if (!(o instanceof Flight)) return false;
         Flight flight = (Flight) o;
-        return Objects.equals(getId(), flight.getId()) && Objects.equals(getDepartureDateAndTime(), flight.getDepartureDateAndTime()) && Objects.equals(getArrivalDateAndTime(), flight.getArrivalDateAndTime()) && Objects.equals(getPlaneId(), flight.getPlaneId()) && Objects.equals(getDescription(), flight.getDescription()) && Objects.equals(getDepartureLocation(), flight.getDepartureLocation());
+        return Objects.equals(getId(), flight.getId()) && Objects.equals(getDepartureDateAndTime(), flight.getDepartureDateAndTime()) && Objects.equals(getArrivalDateAndTime(), flight.getArrivalDateAndTime()) && Objects.equals(getDescription(), flight.getDescription()) && Objects.equals(getDepartureLocation(), flight.getDepartureLocation());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getDepartureDateAndTime(), getArrivalDateAndTime(), getPlaneId(), getDescription(), getDepartureLocation());
+        return Objects.hash(getId(), getDepartureDateAndTime(), getArrivalDateAndTime(), getDescription(), getDepartureLocation());
     }
 }

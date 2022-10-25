@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
-        String id = user.getId();
+        int id = user.getId();
         Name name = user.getName();
         Gender gender = user.getGender();
 
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> read(String id) {
+    public Optional<User> read(Integer id) {
         return this.repository.findById(id);
     }
 
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(Integer id) {
         Optional<User> user = read(id);
         if (user.isPresent()) {
             delete(user.get());

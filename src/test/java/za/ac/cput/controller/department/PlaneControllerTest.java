@@ -28,7 +28,7 @@ class PlaneControllerTest {
     private int port=8080;
     @Autowired
     private TestRestTemplate restTemplate;
-    private Plane plane = PlaneFactory.build("01","Mango","650","Boeing");
+    private Plane plane = PlaneFactory.build(000000001,"Mango","650","Boeing");
     private String baseURL = "http://localhost:"+port+"/airport-management/plane";
 
     @Test

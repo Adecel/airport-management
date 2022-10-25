@@ -21,7 +21,7 @@ class FlightServiceImplTest {
     private FlightServiceImpl flightService;
     private static Flight flight_a =
             FlightFactory.build("AA13Bus00","19:25 - 2022/09/30",
-                    "15:25 - 2022/09/31", "12UU24",
+                    "15:25 - 2022/09/31",
                     "only for business", "Cape Town");
 
     @Test

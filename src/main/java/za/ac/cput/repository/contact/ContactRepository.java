@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.contact.Contact;
 
 @Repository
-public interface ContactRepository extends JpaRepository<Contact, String> {
+public interface ContactRepository extends JpaRepository<Contact, Integer> {
 
 }

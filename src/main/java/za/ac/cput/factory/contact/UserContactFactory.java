@@ -6,13 +6,11 @@ import za.ac.cput.util.Helper;
 
 public class UserContactFactory {
 
-    public static UserContact build(String userId, String contactTypeId, String contactId, String date) {
-        Helper.checkStringParam("userId", userId);
-        Helper.checkStringParam("contactTypeId", contactTypeId);
-        Helper.checkStringParam("contactId", contactId);
+    public static UserContact build(int userId,  String date) {
+
         Helper.checkStringParam("date", date);
 
-        return UserContact.builder().userId(userId).contactTypeId(contactTypeId)
-                .contactId(contactId).date(date).build();
+        return UserContact.builder().Id(userId)
+        .date(date).build();
     }
 }

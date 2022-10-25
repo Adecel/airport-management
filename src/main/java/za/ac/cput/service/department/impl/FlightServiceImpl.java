@@ -24,12 +24,11 @@ public class FlightServiceImpl implements FlightService {
         String id = flight.getId();
         String departureDateAndTime = flight.getDepartureDateAndTime();
         String arrivalDateAndTime = flight.getArrivalDateAndTime();
-        String planeId = flight.getPlaneId();
         String description = flight.getDescription();
         String departureLocation = flight.getDepartureLocation();
 
         Flight saving = FlightFactory.build(id, departureDateAndTime, arrivalDateAndTime,
-                planeId, description, departureLocation);
+                description, departureLocation);
         System.out.println("saving" + saving);
         return this.repository.save(saving);
     }

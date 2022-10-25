@@ -21,7 +21,7 @@ public class PlaneServiceImpl implements PlaneService {
 
     @Override
     public Plane save(Plane plane) {
-        String id = plane.getId();
+        int id = plane.getId();
         String name = plane.getName();
         String capacity = plane.getCapacity();
         String model = plane.getModel();
@@ -32,7 +32,7 @@ public class PlaneServiceImpl implements PlaneService {
     }
 
     @Override
-    public Optional<Plane> read(String id) {
+    public Optional<Plane> read(Integer id) {
         return this.repository.findById(id);
     }
 
@@ -42,7 +42,7 @@ public class PlaneServiceImpl implements PlaneService {
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(Integer id) {
         Optional<Plane> plane = read(id);
         if (plane.isPresent()) {
             delete(plane.get());

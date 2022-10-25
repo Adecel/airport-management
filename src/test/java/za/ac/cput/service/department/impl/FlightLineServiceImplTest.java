@@ -20,7 +20,7 @@ class FlightLineServiceImplTest {
     @Autowired
     private FlightLineServiceImpl flightLineService;
     private static FlightLine flightLine_a =
-            FlightLineFactory.build("Addis09667","Cape Town - Paris, via Addis ",
+            FlightLineFactory.build(2,"Cape Town - Paris, via Addis ",
                     "Cape Town : 15:25 - 2022/09/31");
 
     @Test
@@ -34,11 +34,11 @@ class FlightLineServiceImplTest {
     @Test
     @Order(2)
     void read() {
-        Optional<FlightLine> read = this.flightLineService.read("Addis09667");
+        Optional<FlightLine> read = this.flightLineService.read(1);
         assertNotNull(read);
         System.out.println(read);
         assertAll(
-                () -> assertEquals("Addis09667", flightLine_a.getId())
+                () -> assertEquals(1, flightLine_a.getId())
         );
     }
 
@@ -52,7 +52,7 @@ class FlightLineServiceImplTest {
     @Test
     @Order(4)
     void deleteById() {
-        this.flightLineService.deleteById("Addis09667");
+        this.flightLineService.deleteById(1);
     }
 
     @Test

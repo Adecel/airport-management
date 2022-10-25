@@ -9,7 +9,7 @@ class UserCategoryFactoryTest {
 
     @Test
     void buildWithSuccess(){
-        UserCategory userCategory =  UserCategoryFactory.build("010","Employee",
+        UserCategory userCategory =  UserCategoryFactory.build(10,"Employee",
                 "Employee who take care of luggage");
         System.out.println(userCategory);
         assertNotNull(userCategory);
@@ -17,7 +17,7 @@ class UserCategoryFactoryTest {
     @Test
     void buildWithError(){
         Exception exception = assertThrows(IllegalArgumentException.class,() ->
-                UserCategoryFactory.build(null,"Employee",
+                UserCategoryFactory.build(0,"Employee",
                         "Employee who take care of luggage"));
         System.out.println(exception.getMessage());
         assertTrue(exception.getMessage().contains("id"));

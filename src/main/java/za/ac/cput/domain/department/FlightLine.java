@@ -3,6 +3,8 @@ package za.ac.cput.domain.department;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
@@ -17,7 +19,8 @@ import java.util.Objects;
 public class FlightLine {
     @Id
     @NotNull
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     @NotNull
     private String description;

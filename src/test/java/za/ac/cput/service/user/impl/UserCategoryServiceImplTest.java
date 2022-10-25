@@ -20,7 +20,7 @@ class UserCategoryServiceImplTest {
     @Autowired
     private UserCategoryServiceImpl userCategoryService;
     private static UserCategory userCategory_a =
-            UserCategoryFactory.build("010","Employee",
+            UserCategoryFactory.build(10,"Employee",
                     "Employee who take care of luggage");
 
     @Test

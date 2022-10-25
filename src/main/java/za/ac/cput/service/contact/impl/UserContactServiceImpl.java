@@ -22,18 +22,18 @@ public class UserContactServiceImpl implements UserContactService {
 
     @Override
     public UserContact save(UserContact userContact) {
-        String userId = userContact.getUserId();
-        String contactTypeId = userContact.getContactTypeId();
-        String contactId = userContact.getContactId();
+        int userId = userContact.getId();
+//        String contactTypeId = userContact.getContactTypeId();
+//        String contactId = userContact.getContactId();
         String date = userContact.getDate();
 
-        UserContact saving = UserContactFactory.build(userId, contactTypeId, contactId, date);
+        UserContact saving = UserContactFactory.build(userId, date);
         System.out.println("saving" + saving);
         return this.repository.save(saving);
     }
 
     @Override
-    public Optional<UserContact> read(String id) {
+    public Optional<UserContact> read(Integer id) {
         return this.repository.findById(id);
     }
 
@@ -45,7 +45,7 @@ public class UserContactServiceImpl implements UserContactService {
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(Integer id) {
         Optional<UserContact> userContact = read(id);
         if (userContact.isPresent()) {
             delete(userContact.get());

@@ -4,9 +4,7 @@ import lombok.*;
 import za.ac.cput.domain.lookup.Gender;
 import za.ac.cput.domain.lookup.Name;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
@@ -21,7 +19,8 @@ public class User {
 
     @Id
     @NotNull
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     @Embedded
     private Name name;

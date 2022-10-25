@@ -5,9 +5,9 @@ import za.ac.cput.util.Helper;
 
 public class FlightLineFactory {
 
-    public static FlightLine build(String id, String description, String departure) {
+    public static FlightLine build(int id, String description, String departure) {
 
-        Helper.checkStringParam("FlightLineId", id);
+
         Helper.checkStringParam("description", description);
         Helper.checkStringParam("departure", departure);
 

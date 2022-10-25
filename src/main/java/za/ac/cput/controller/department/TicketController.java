@@ -13,8 +13,9 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/airport-management/ticket")
+@RequestMapping("/ticket")
 @Slf4j
+@CrossOrigin(origins = "*")
 public class TicketController {
     private final TicketServiceImpl ticketService;
     @Autowired

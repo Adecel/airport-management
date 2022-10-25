@@ -24,7 +24,7 @@ class ContactControllerTest {
     private  int port = 8080;
     @Autowired
     private TestRestTemplate restTemplate;
-    private Contact contact01 = ContactFactory.build("01", "0813623440",
+    private Contact contact01 = ContactFactory.build(1, "0813623440",
             "Telekom phone Number");
     private String baseURL ="http://localhost:"+ this.port+"/airport-management/contact";
 

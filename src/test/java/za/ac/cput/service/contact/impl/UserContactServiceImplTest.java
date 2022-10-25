@@ -20,8 +20,7 @@ class UserContactServiceImplTest {
     @Autowired
     private UserContactServiceImpl userContactService;
     private static UserContact userContact_a =
-            UserContactFactory.build("user01","WhatsApp",
-                    "(+27)913633440", "19:25 - 2022/09/30");
+            UserContactFactory.build(33,"2022/09/30");
 
     @Test
     @Order(1)
@@ -34,11 +33,11 @@ class UserContactServiceImplTest {
     @Test
     @Order(2)
     void read() {
-        Optional<UserContact> read = this.userContactService.read("user01");
+        Optional<UserContact> read = this.userContactService.read(1);
         assertNotNull(read);
         System.out.println(read);
         assertAll(
-                () -> assertEquals("user01", userContact_a.getUserId())
+                () -> assertEquals("user01", userContact_a.getId())
         );
     }
 
@@ -52,7 +51,7 @@ class UserContactServiceImplTest {
     @Test
     @Order(4)
     void deleteById() {
-        this.userContactService.deleteById("user01");
+        this.userContactService.deleteById(2);
     }
 
     @Test

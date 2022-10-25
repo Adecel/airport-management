@@ -9,7 +9,7 @@ class PlaneFactoryTest {
 
     @Test
     void buildWithSuccess(){
-        Plane plane =  PlaneFactory.build("99Air87B5","lufthansa",
+        Plane plane =  PlaneFactory.build(1,"lufthansa",
                 "A330 - 7.3 tonnes of cargo", "Airbus A333-300");
         System.out.println(plane);
         assertNotNull(plane);
@@ -18,7 +18,7 @@ class PlaneFactoryTest {
     @Test
     void buildWithError(){
         Exception exception = assertThrows(IllegalArgumentException.class,() ->
-                PlaneFactory.build(null,"lufthansa",
+                PlaneFactory.build(0,"lufthansa",
                         "A330 - 7.3 tonnes of cargo", "Airbus A333-300"));
         System.out.println(exception.getMessage());
         assertTrue(exception.getMessage().contains("id"));
