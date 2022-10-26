@@ -17,7 +17,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/contact")
+@RequestMapping("/api/contact")
 @Slf4j
 @CrossOrigin(origins = "*")
 public class ContactController {

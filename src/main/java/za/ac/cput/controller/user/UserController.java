@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("api/user")
 @Slf4j
 @CrossOrigin(origins = "*")
 public class UserController {

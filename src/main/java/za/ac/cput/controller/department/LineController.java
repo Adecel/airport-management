@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 @Slf4j
 @RestController
-@RequestMapping("/line")
+@RequestMapping("/api/line")
 @CrossOrigin(origins = "*")
 public class LineController {
 

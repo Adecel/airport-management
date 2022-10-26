@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/user-contact")
+@RequestMapping("/api/user-contact")
 @Slf4j
 @CrossOrigin(origins = "*")
 public class UserContactController {
