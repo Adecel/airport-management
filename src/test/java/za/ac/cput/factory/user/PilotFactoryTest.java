@@ -24,7 +24,7 @@ class PilotFactoryTest {
     void buildWithError(){
         Exception exception = assertThrows(IllegalArgumentException.class,() ->
                 PilotFactory.build(0,
-                        new Name("Adecel", "Rusty", "Mabiala"),
+                        new Name("Adecel", "Rusty", ""),
                         new Gender("M","Male"), "123456789"));
         System.out.println(exception.getMessage());
         assertTrue(exception.getMessage().contains("id"));
