@@ -1,5 +1,9 @@
 package za.ac.cput.domain.user;
-
+/*
+  Name : Mahad Haasan
+  student num: 219122822
+  Capstone Project
+ */
 import lombok.*;
 import za.ac.cput.domain.department.Flight;
 
