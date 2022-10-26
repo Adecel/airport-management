@@ -18,8 +18,9 @@ class UserContactFactoryTest {
     @Test
     void buildWithError(){
         Exception exception = assertThrows(IllegalArgumentException.class,() ->
-                UserContactFactory.build(0,"19:25 - 2022/09/30"));
+                UserContactFactory.build(1,""));
         System.out.println(exception.getMessage());
-        assertTrue(exception.getMessage().contains("userId"));
+        assertTrue(exception.getMessage().contains("id"));
     }
 }
+

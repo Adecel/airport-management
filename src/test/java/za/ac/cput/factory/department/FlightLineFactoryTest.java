@@ -16,11 +16,10 @@ class FlightLineFactoryTest {
 
     }
     @Test
-    void buildWithError(){
-        Exception exception = assertThrows(IllegalArgumentException.class,() ->
-                FlightLineFactory.build(0,"Cape Town - Paris, via Addis ",
-                        "Cape Town : 15:25 - 2022/09/31"));
+    void buildWithError(){  Exception exception = assertThrows(IllegalArgumentException.class,() ->
+            FlightLineFactory.build(2,null,
+                    "Cape Town : 15:25 - 2022/09/31"));
         System.out.println(exception.getMessage());
-        assertTrue(exception.getMessage().contains("id"));
+        assertFalse(exception.getMessage().contains("departure"));
     }
 }

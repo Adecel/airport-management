@@ -34,11 +34,11 @@ class FlightLineServiceImplTest {
     @Test
     @Order(2)
     void read() {
-        Optional<FlightLine> read = this.flightLineService.read(1);
+        Optional<FlightLine> read = this.flightLineService.read(2);
         assertNotNull(read);
         System.out.println(read);
         assertAll(
-                () -> assertEquals(1, flightLine_a.getId())
+                () -> assertEquals(2, flightLine_a.getId())
         );
     }
 
@@ -52,7 +52,7 @@ class FlightLineServiceImplTest {
     @Test
     @Order(4)
     void deleteById() {
-        this.flightLineService.deleteById(1);
+        this.flightLineService.deleteById(2);
     }
 
     @Test

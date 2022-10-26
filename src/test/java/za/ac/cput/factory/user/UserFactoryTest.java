@@ -12,22 +12,25 @@ class UserFactoryTest {
 
     @Test
     void buildWithSuccess() {
-        User user_a = UserFactory.build(11,
-                new Name("Adecel", "Rusty", "Mabiala"),
-                new Gender("M","Male"));
-        int userId = user_a.getId();
-        assertEquals("user01", userId);
-        System.out.println(user_a);
+        User user = UserFactory.build(10, new Name("John", "Doe", "Smith"), new Gender("M", "unknown"));
+        assertNotNull(user);
+        assertEquals(10, user.getId());
+        assertEquals("John", user.getName().getFirstName());
+        assertEquals("Doe", user.getName().getMiddleName());
+        assertEquals("Smith", user.getName().getLastName());
+        assertEquals("M", user.getGender().getGender());
+        assertEquals("unknown", user.getGender().getDescription());
+        System.out.println(user);
+
     }
 
     @Test
-    void buildWithError(){
-        Exception exception = assertThrows(IllegalArgumentException.class,() ->
-                UserFactory.build(0,
-                        new Name("Adecel", "Rusty", "Mabiala"),
-                        new Gender("M","Male")));
+    void buildWithError() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+                UserFactory.build(0, new Name("Adecel", "Rusty", ""), new Gender("M", "unknown")));
         System.out.println(exception.getMessage());
         assertTrue(exception.getMessage().contains("id"));
+
     }
 
 }
