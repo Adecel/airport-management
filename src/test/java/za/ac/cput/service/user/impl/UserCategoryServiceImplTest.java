@@ -37,11 +37,11 @@ class UserCategoryServiceImplTest {
     @Test
     @Order(2)
     void read() {
-        Optional<UserCategory> read = this.userCategoryService.read("010");
+        Optional<UserCategory> read = this.userCategoryService.read(String.valueOf(10));
         assertNotNull(read);
         System.out.println(read);
         assertAll(
-                () -> assertEquals("010", userCategory_a.getId())
+                () -> assertEquals(10, userCategory_a.getId())
         );
     }
 
@@ -55,7 +55,7 @@ class UserCategoryServiceImplTest {
     @Test
     @Order(4)
     void deleteById() {
-        this.userCategoryService.deleteById("010");
+        this.userCategoryService.deleteById(String.valueOf(10));
     }
 
     @Test

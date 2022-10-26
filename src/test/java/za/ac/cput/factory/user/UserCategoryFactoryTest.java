@@ -21,7 +21,7 @@ class UserCategoryFactoryTest {
     @Test
     void buildWithError(){
         Exception exception = assertThrows(IllegalArgumentException.class,() ->
-                UserCategoryFactory.build(0,"Employee",
+                UserCategoryFactory.build(0,"",
                         "Employee who take care of luggage"));
         System.out.println(exception.getMessage());
         assertTrue(exception.getMessage().contains("id"));

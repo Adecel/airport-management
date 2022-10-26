@@ -44,7 +44,7 @@ class UserServiceImplTest {
         assertNotNull(read);
         System.out.println(read);
         assertAll(
-                () -> assertEquals("user01", user_a.getId())
+                () -> assertEquals(0, user_a.getId())
         );
     }
 

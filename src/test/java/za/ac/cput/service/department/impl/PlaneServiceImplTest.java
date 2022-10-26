@@ -37,11 +37,11 @@ class PlaneServiceImplTest {
     @Test
     @Order(2)
     void read() {
-        Optional<Plane> read = this.planeService.read(99);
+        Optional<Plane> read = this.planeService.read(2);
         assertNotNull(read);
         System.out.println(read);
         assertAll(
-                () -> assertEquals("99Air87B5", plane_a.getId())
+                () -> assertEquals(2, plane_a.getId())
         );
     }
 
