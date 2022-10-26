@@ -18,9 +18,10 @@ class PlaneFactoryTest {
     @Test
     void buildWithError(){
         Exception exception = assertThrows(IllegalArgumentException.class,() ->
-                PlaneFactory.build(0,"lufthansa",
+                PlaneFactory.build(1,null,
                         "A330 - 7.3 tonnes of cargo", "Airbus A333-300"));
         System.out.println(exception.getMessage());
-        assertTrue(exception.getMessage().contains("id"));
+        assertFalse(exception.getMessage().contains("planeName"));
+
     }
 }

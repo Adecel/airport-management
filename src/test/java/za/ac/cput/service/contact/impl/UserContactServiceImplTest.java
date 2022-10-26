@@ -33,11 +33,11 @@ class UserContactServiceImplTest {
     @Test
     @Order(2)
     void read() {
-        Optional<UserContact> read = this.userContactService.read(1);
+        Optional<UserContact> read = this.userContactService.read(33);
         assertNotNull(read);
         System.out.println(read);
         assertAll(
-                () -> assertEquals("user01", userContact_a.getId())
+                () -> assertEquals(33, userContact_a.getId())
         );
     }
 
