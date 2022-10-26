@@ -7,9 +7,9 @@ here will go the ans
 
 
 ## UML Class Diagram
-
-![class-diagram(url)](https://github.com/Adecel/airport-management/tree/master/uml/class diagram.jpg)
-
+```
+https://github.com/Adecel/airport-management/tree/master/uml/class diagram.jpg
+```
 ---
 
 ## Authors
