@@ -1,64 +1,61 @@
 package za.ac.cput.service.user.impl;
-/*
-  Adecel Rusty Mabiala
-  219197229
- */
+
 import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.domain.user.UserType;
-import za.ac.cput.factory.user.UserTypeFactory;
+import org.springframework.stereotype.Service;
+import za.ac.cput.domain.lookup.Gender;
+import za.ac.cput.domain.lookup.Name;
+import za.ac.cput.domain.user.Pilot;
+import za.ac.cput.factory.user.PilotFactory;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
-class UserTypeServiceImplTest {
+class PilotServiceImplTest {
 
     @Autowired
-    private UserTypeServiceImpl userTypeService;
-    private static UserType userType_a =
-            UserTypeFactory.build("user01","010");
+    private PilotServiceImpl pilotService;
+    private static Pilot pilot_a = PilotFactory.build(17,
+            new Name("John","William","Wayne"),
+            new Gender("M", "Pilot"),"18:25 - 2022/09/30");
+
 
     @Test
-    @Order(1)
     void save() {
         System.out.println("Saved");
-        UserType userType = userTypeService.save(userType_a);
-        assertNotNull(userType);
+        Pilot pilot = pilotService.save(pilot_a);
+        assertNotNull(pilot);
     }
 
     @Test
-    @Order(2)
     void read() {
-        Optional<UserType> read = this.userTypeService.read("user01");
+        Optional<Pilot> read = this.pilotService.read(17);
         assertNotNull(read);
         System.out.println(read);
         assertAll(
-                () -> assertEquals("user01", userType_a.getUserId())
+                () -> assertEquals(17, pilot_a.getId())
         );
     }
 
     @Test
-    @Order(5)
     void delete() {
         System.out.println("deleted");
-        this.userTypeService.delete(userType_a);
+        this.pilotService.delete(pilot_a);
     }
 
     @Test
-    @Order(4)
     void deleteById() {
-        this.userTypeService.deleteById("user01");
+        this.pilotService.deleteById(17);
     }
 
     @Test
-    @Order(3)
     void findAll() {
+        //C
+
     }
 }

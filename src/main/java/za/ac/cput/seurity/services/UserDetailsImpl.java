@@ -1,5 +1,8 @@
 package za.ac.cput.seurity.services;
-
+/*
+  Adecel Rusty Mabiala
+  219197229
+ */
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

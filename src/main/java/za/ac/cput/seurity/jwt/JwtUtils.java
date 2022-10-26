@@ -1,5 +1,8 @@
 package za.ac.cput.seurity.jwt;
-
+/*
+  Adecel Rusty Mabiala
+  219197229
+ */
 
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;

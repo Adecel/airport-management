@@ -1,5 +1,8 @@
 package za.ac.cput.domain.contact;
-
+/*
+  Hilary Cassidy Nguepi Nangmo
+  220346887
+*/
 import lombok.*;
 import za.ac.cput.domain.user.User;
 

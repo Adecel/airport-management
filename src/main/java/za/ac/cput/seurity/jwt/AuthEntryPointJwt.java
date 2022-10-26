@@ -1,5 +1,8 @@
 package za.ac.cput.seurity.jwt;
-
+/*
+  Adecel Rusty Mabiala
+  219197229
+ */
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.AuthenticationException;

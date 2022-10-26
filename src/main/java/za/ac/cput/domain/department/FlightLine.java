@@ -1,5 +1,8 @@
 package za.ac.cput.domain.department;
-
+/*
+  Dieuci Djate Nsibu
+  220169136
+  */
 import lombok.*;
 
 import javax.persistence.Entity;
