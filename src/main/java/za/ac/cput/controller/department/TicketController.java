@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/ticket")
+@RequestMapping("api/ticket")
 @Slf4j
 @CrossOrigin(origins = "*")
 public class TicketController {

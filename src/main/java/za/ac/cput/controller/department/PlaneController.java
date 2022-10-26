@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/plane")
+@RequestMapping("api/plane")
 @Slf4j
 @CrossOrigin(origins = "*")
 public class PlaneController {

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/contact-type")
+@RequestMapping("/api/contact-type")
 @Slf4j
 @CrossOrigin(origins = "*")
 public class ContactTypeController {
