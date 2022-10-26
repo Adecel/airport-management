@@ -3,6 +3,7 @@ package za.ac.cput.factory.user;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.user.UserType;
+import za.ac.cput.factory.user.UserTypeFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 

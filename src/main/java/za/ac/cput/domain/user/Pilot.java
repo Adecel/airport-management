@@ -6,7 +6,6 @@ import za.ac.cput.domain.lookup.Name;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
 
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -15,8 +14,7 @@ import java.util.Objects;
 @ToString
 @Entity
 @EqualsAndHashCode
-public class Hostess {
-
+public class Pilot {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,5 +27,4 @@ public class Hostess {
     private Gender gender;
 
     private String phoneNumber;
-
 }

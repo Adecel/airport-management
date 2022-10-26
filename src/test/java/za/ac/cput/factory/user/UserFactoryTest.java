@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.lookup.Gender;
 import za.ac.cput.domain.lookup.Name;
 import za.ac.cput.domain.user.User;
+import za.ac.cput.factory.user.UserFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 

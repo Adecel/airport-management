@@ -2,6 +2,7 @@ package za.ac.cput.factory.user;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.user.FlightPilot;
+import za.ac.cput.factory.user.FlightPilotFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 

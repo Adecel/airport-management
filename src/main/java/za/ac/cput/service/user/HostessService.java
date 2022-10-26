@@ -6,9 +6,9 @@ import za.ac.cput.service.IService;
 
 import java.util.List;
 
-public interface HostessService extends IService<Hostess, String> {
-    List<Hostess> findAllByUserId(String userId);
-    List<Hostess>findAllByFlightId(String flightId);
-    List<Hostess>findAllByDate(String date);
-    List<Hostess>findAllByDateAndFlightId(String date,String flightId);
+public interface HostessService extends IService<Hostess, Integer> {
+//    List<Hostess> findAllByUserId(String userId);
+//    List<Hostess>findAllByFlightId(String flightId);
+//    List<Hostess>findAllByDate(String date);
+//    List<Hostess>findAllByDateAndFlightId(String date,String flightId);
 }
