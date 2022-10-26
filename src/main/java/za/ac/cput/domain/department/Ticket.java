@@ -1,5 +1,8 @@
 package za.ac.cput.domain.department;
-
+/*
+  Mogamad Tawfeeq Cupido
+  216266882
+*/
 import lombok.*;
 
 import javax.persistence.Entity;

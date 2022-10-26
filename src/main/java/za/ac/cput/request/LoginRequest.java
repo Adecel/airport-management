@@ -1,5 +1,8 @@
 package za.ac.cput.request;
-
+/*
+  Adecel Rusty Mabiala
+  219197229
+ */
 public class LoginRequest {
 
     private String username;

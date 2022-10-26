@@ -1,5 +1,9 @@
 package za.ac.cput.controller.user;
-
+/*
+  Name : Mahad Haasan
+  student num: 219122822
+  Capstone Project
+ */
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;

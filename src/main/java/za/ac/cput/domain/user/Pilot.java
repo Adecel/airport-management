@@ -1,5 +1,8 @@
 package za.ac.cput.domain.user;
-
+/*
+  Mogamad Tawfeeq Cupido
+  216266882
+*/
 import lombok.*;
 import za.ac.cput.domain.lookup.Gender;
 import za.ac.cput.domain.lookup.Name;

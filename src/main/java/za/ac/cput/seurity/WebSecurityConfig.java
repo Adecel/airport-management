@@ -1,5 +1,8 @@
 package za.ac.cput.seurity;
-
+/*
+  Adecel Rusty Mabiala
+  219197229
+ */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
