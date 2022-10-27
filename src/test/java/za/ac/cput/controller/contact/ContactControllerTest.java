@@ -44,9 +44,13 @@ class ContactControllerTest {
     @Test
     @Order(1)
     void a_save() {
-        String url = baseURL+"/save";
-        ResponseEntity<Contact> response=this.restTemplate.postForEntity(url, this.contact01, Contact.class);
-        assertEquals(response.getStatusCode().value(),200);
+        String url = baseURL + "/create";
+        ResponseEntity<Contact> postResponse = restTemplate.postForEntity(url, contact01, Contact.class);
+        System.out.println(postResponse);
+        assertAll(
+                () -> assertNotNull(postResponse),
+                () -> assertNotNull(postResponse.getBody())
+        );
     }
 
 //    @Test
@@ -62,14 +66,13 @@ class ContactControllerTest {
     @Test
     @Order(3)
     void c_getAll() {
-        String url = baseURL + "getAll";
-        System.out.println(url);
-        ResponseEntity<Contact[]> response =
-                this.restTemplate.getForEntity(url, Contact[].class);
-        System.out.println(Arrays.asList(response.getBody()));
+        String url = baseURL + "/all";
+        System.out.println("URL: " + url);
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        System.out.println(response);
         assertAll(
-                ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                ()-> assertTrue(response.getBody().length==0)
+                () -> assertNotNull(response),
+                () -> assertNotNull(response.getBody())
         );
     }
 
@@ -88,9 +91,14 @@ class ContactControllerTest {
     @Test
     @Order(2)
     void b_read() {
-        String url= baseURL+ "/read/"+contact01.getId();
-        ResponseEntity<Contact> response=this.restTemplate.getForEntity(url,Contact.class);
-        assertEquals(response.getStatusCode().value(),200);
+        String url = baseURL + "/read/" + contact01.getId();
+        System.out.println("URL: " + url);
+        ResponseEntity<Contact> response = restTemplate.getForEntity(url, Contact.class);
+        System.out.println(response);
+        assertAll(
+                () -> assertNotNull(response),
+                () -> assertNotNull(response.getBody())
+        );
     }
 
 //    @Test
@@ -106,8 +114,9 @@ class ContactControllerTest {
     @Test
     @Order(4)
     void d_delete() {
-        String url = baseURL + "/delete/" + this.contact01.getId();
-        this.restTemplate.delete(url);
+        String url = baseURL + "/delete/" + contact01.getId();
+        System.out.println("URL: " + url);
+        restTemplate.delete(url);
     }
 
 }

@@ -28,29 +28,39 @@ class TicketControllerTest {
     @Test
     @Order(1)
     void save() {
-        String url = baseURL+"/save";
-        ResponseEntity<Ticket> response = this.restTemplate.postForEntity(url,ticket,Ticket.class);
-        assertEquals(response.getStatusCode().value(),401);
+        String url = baseURL + "/create";
+        ResponseEntity<Ticket> postResponse = restTemplate.postForEntity(url, ticket, Ticket.class);
+        System.out.println(postResponse);
+        assertAll(
+                () -> assertNotNull(postResponse),
+                () -> assertNotNull(postResponse.getBody())
+        );
     }
 
     @Test
     @Order(2)
     void read() {
-        String url = "http://localhost:" + port + "/airport-management/ticket/read/" + ticket.getId();
+        String url = baseURL + "/read/" + ticket.getId();
         System.out.println("URL: " + url);
-        Ticket response = restTemplate.getForObject(url, Ticket.class);
-        assertNull(response);
-        System.out.println("Read data: " + response);
+        ResponseEntity<Ticket> response = restTemplate.getForEntity(url, Ticket.class);
+        System.out.println(response);
+        assertAll(
+                () -> assertNotNull(response),
+                () -> assertNotNull(response.getBody())
+        );
     }
 
     @Test
     @Order(3)
     void findAll() {
-        String url = "http://localhost:" + port + "/airport-management/ticket/findAll";
+        String url = baseURL + "/all";
         System.out.println("URL: " + url);
-        Ticket[] response = restTemplate.getForObject(url, Ticket[].class);
-        assertNull(response);
-        System.out.println("Read data: " + response);
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        System.out.println(response);
+        assertAll(
+                () -> assertNotNull(response),
+                () -> assertNotNull(response.getBody())
+        );
     }
 
     @Test

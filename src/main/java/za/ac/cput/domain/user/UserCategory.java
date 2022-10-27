@@ -3,6 +3,8 @@ package za.ac.cput.domain.user;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
@@ -16,6 +18,7 @@ import java.util.Objects;
 public class UserCategory {
     @Id
     @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @NotNull

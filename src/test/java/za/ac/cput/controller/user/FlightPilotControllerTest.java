@@ -32,63 +32,53 @@ class FlightPilotControllerTest {
 
 
     @Test
-    void A_create() {
-        String url = baseURL+"/create";
-        ResponseEntity<FlightPilot> response=this.restTemplate.withBasicAuth("user","test").postForEntity(url, this.flight, FlightPilot.class);
-        assertEquals(response.getStatusCode().value(),200);
+    void create() {
+        String url = baseURL + "/create";
+        ResponseEntity<FlightPilot> postResponse = this.restTemplate.postForEntity(url, this.flight, FlightPilot.class);
+        System.out.println(postResponse);
+        assertAll(
+                () -> assertNotNull(postResponse),
+                () -> assertNotNull(postResponse.getBody())
+        );
     }
 
     @Test
-    void B_read() {
-        String url = baseURL+"/read/"+flight.getId();
-        ResponseEntity<FlightPilot> response=this.restTemplate.withBasicAuth("user","test").getForEntity(url, FlightPilot.class);
-        assertEquals(response.getStatusCode().value(),200);
+    void read() {
+        String url = baseURL + "/read/" + this.flight.getId();
+        System.out.println("URL: " + url);
+        ResponseEntity<FlightPilot> response = this.restTemplate.getForEntity(url, FlightPilot.class);
+        System.out.println(response);
+        assertAll(
+                () -> assertNotNull(response),
+                () -> assertNotNull(response.getBody())
+        );
     }
 
     @Test
-    void H_delete() {
-        String url = baseURL+"/delete";
-        ResponseEntity<FlightPilot> response=this.restTemplate.withBasicAuth("user","test").postForEntity(url, flight, FlightPilot.class);
-        assertEquals(response.getStatusCode().value(),200);
+    void delete() {
+        String url = baseURL + "/delete/" + this.flight.getId();
+        System.out.println("URL: " + url);
+        this.restTemplate.delete(url);
     }
 
-    @Test
-    void C_readAll() {
-        String url = baseURL+"/read-all/";
-        ResponseEntity<FlightPilot[]> response = this.restTemplate.withBasicAuth("user","test").getForEntity(url, FlightPilot[].class);
-        System.out.println(Arrays.asList(response.getBody()));
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-    }
 
     @Test
-    void D_readAllByFlightId() {
-        String url = baseURL + "/read-all-by-flight-id/"+flight.getFlightId();
-        ResponseEntity<FlightPilot[]> response = this.restTemplate.withBasicAuth("user","test").getForEntity(url, FlightPilot[].class);
-        System.out.println(Arrays.asList(response.getBody()));
-        assertEquals(HttpStatus.OK, response.getStatusCode());
+    void findAll() {
+        String url = baseURL + "/all";
+        System.out.println("URL: " + url);
+        ResponseEntity<String> response = this.restTemplate.getForEntity(url, String.class);
+        System.out.println(response);
+        assertAll(
+                () -> assertNotNull(response),
+                () -> assertNotNull(response.getBody())
+        );
     }
 
-    @Test
-    void E_readAllByUserId() {
-        String url = baseURL + "/read-all-by-user-id/"+flight.getUserId();
-        ResponseEntity<FlightPilot[]> response = this.restTemplate.withBasicAuth("user","test").getForEntity(url, FlightPilot[].class);
-        System.out.println(Arrays.asList(response.getBody()));
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-    }
 
     @Test
-    void F_readAllByDate() {
-        String url = baseURL + "/read-all-by-date/"+flight.getDate();
-        ResponseEntity<FlightPilot[]> response = this.restTemplate.withBasicAuth("user","test").getForEntity(url, FlightPilot[].class);
-        System.out.println(Arrays.asList(response.getBody()));
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-    }
-
-    @Test
-    void G_readAllByDateAndFlightId() {
-        String url = baseURL + "/read-all-by-date-flight-id/"+flight.getDate()+"/"+flight.getFlightId();
-        ResponseEntity<FlightPilot[]> response = this.restTemplate.withBasicAuth("user","test").getForEntity(url, FlightPilot[].class);
-        System.out.println(Arrays.asList(response.getBody()));
-        assertEquals(HttpStatus.OK, response.getStatusCode());
+    void deleteByid() {
+        String url = baseURL + "/delete/" + this.flight.getId();
+        System.out.println("URL: " + url);
+        this.restTemplate.delete(url);
     }
 }
