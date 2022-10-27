@@ -1,5 +1,8 @@
 package za.ac.cput.domain.department;
-
+/*
+  Kissimba Nyembo Isaac
+  219383448
+*/
 import lombok.*;
 
 import javax.persistence.Entity;

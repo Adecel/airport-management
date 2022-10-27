@@ -1,5 +1,8 @@
 package za.ac.cput.domain.user;
-
+/*
+  Adecel Rusty Mabiala
+  219197229
+ */
 import lombok.*;
 
 import javax.persistence.Entity;

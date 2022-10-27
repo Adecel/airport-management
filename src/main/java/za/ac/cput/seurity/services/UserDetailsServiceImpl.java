@@ -1,5 +1,8 @@
 package za.ac.cput.seurity.services;
-
+/*
+  Adecel Rusty Mabiala
+  219197229
+ */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

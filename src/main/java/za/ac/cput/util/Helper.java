@@ -1,5 +1,8 @@
 package za.ac.cput.util;
-
+/*
+  Adecel Rusty Mabiala
+  219197229
+ */
 public class Helper {
 
     public static boolean nullOrEmpty(String string) {

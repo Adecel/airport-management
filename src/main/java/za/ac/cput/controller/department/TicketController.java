@@ -1,5 +1,8 @@
 package za.ac.cput.controller.department;
-
+/*
+  Mogamad Tawfeeq Cupido
+  216266882
+*/
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
