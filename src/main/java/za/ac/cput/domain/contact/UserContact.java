@@ -34,8 +34,12 @@ public class UserContact {
     @NotNull
     private String date;
     //here is string ok we have to use date as data type?
+    //    @OneToOne
+//    @JoinColumn(name="contactType_id")
+
     @OneToOne(cascade = CascadeType.ALL)
     private ContactType contactType;
+
     @OneToOne(cascade = CascadeType.ALL)
     private Contact contact;
     @Override

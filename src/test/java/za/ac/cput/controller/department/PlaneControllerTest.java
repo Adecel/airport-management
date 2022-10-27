@@ -28,11 +28,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlaneControllerTest {
 
     @LocalServerPort
-    private int port=8080;
+    private int port=7000;
     @Autowired
     private TestRestTemplate restTemplate;
     private Plane plane = PlaneFactory.build(90,"Mango","650","Boeing");
-    private String baseURL = "http://localhost:"+port+"/airport-management/plane";
+    private String baseURL = "http://localhost:"+port+"/api/airport-management/plane";
 
     @Test
     @Order(1)

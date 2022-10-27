@@ -24,12 +24,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class ContactControllerTest {
 
     @LocalServerPort
-    private  int port = 8080;
+    private  int port = 7000;
     @Autowired
     private TestRestTemplate restTemplate;
     private Contact contact01 = ContactFactory.build(1, "0813623440",
             "Telekom phone Number");
-    private String baseURL ="http://localhost:"+ this.port+"/airport-management/contact";
+    private String baseURL ="http://localhost:"+ this.port+"/api/airport-management/contact";
 
 
 //    @Test

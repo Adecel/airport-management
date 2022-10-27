@@ -22,10 +22,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TicketControllerTest {
     @LocalServerPort
-    private  int port = 8080;
+    private  int port = 7000;
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL ="http://localhost:"+ this.port+"/airport-management/contact";
+    private String baseURL ="http://localhost:"+ this.port+"/api/airport-management/contact";
     private Ticket ticket = TicketFactory.build("01","01","01","500","1000","1000");
 
     @Test

@@ -5,9 +5,7 @@ package za.ac.cput.domain.contact;
 */
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
@@ -22,13 +20,17 @@ public class ContactType {
 
     @Id
     @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
+
     @NotNull
-    @Column(nullable = false, unique = true)
+//    @Column(nullable = false, unique = true)
     private String email;
+
     @NotNull
-    @Column(nullable = false, unique = true)
+//    @Column(nullable = false, unique = true)
     private String phoneNumber;
+
     @NotNull
     private String description;
 
