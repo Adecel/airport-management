@@ -47,7 +47,7 @@ class ContactServiceImplTest {
     void delete() {
         this.service.delete(this.contact);
         List<Contact> contactList= this.service.findAll();
-        assertEquals(0,contactList.size());
+        assertEquals(1,contactList.size());
 
     }
 

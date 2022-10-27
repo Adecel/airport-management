@@ -39,11 +39,9 @@ class UserTypeControllerTest {
     @Test
     @Order(3)
     void c_getAll() {
-        String url = baseURL + "/getAll";
-        System.out.println("URL: " + url);
-        UserType[] response = restTemplate.getForObject(url, UserType[].class);
-//        assertNull(response);
-        System.out.println("Read data: " + response);
+        String url = baseURL + "/getall";
+        ResponseEntity<String> response = this.restTemplate.getForEntity(url,String.class);
+        System.out.println(response);
     }
 
     @Test

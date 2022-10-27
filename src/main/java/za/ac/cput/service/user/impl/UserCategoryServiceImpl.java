@@ -19,7 +19,7 @@ public class UserCategoryServiceImpl implements UserCategoryService {
     private final UserCategoryRepository repository;
 
     @Autowired
-    public UserCategoryServiceImpl(UserCategoryRepository repository){
+    public UserCategoryServiceImpl(UserCategoryRepository repository) {
         this.repository = repository;
     }
 
@@ -35,25 +35,29 @@ public class UserCategoryServiceImpl implements UserCategoryService {
     }
 
     @Override
-    public Optional<UserCategory> read(String id) {
+    public Optional<UserCategory> read(Integer id) {
         return this.repository.findById(id);
     }
 
     @Override
     public void delete(UserCategory userCategory) {
         this.repository.delete(userCategory);
+
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(Integer id) {
+
         Optional<UserCategory> userCategory = read(id);
         if (userCategory.isPresent()) {
             delete(userCategory.get());
         }
+
     }
 
     @Override
     public List<UserCategory> findAll() {
         return this.repository.findAll();
     }
+
 }
